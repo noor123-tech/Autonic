@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Autonic — Waste Management Mobile App</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Autonic's mobile app provides real-time waste tracking, collection scheduling, and recycling guidance for residents and businesses." name="description">
+    <meta content="waste management app, recycling app, trash collection app, smart waste app, sustainability app" name="keywords">
+    <meta content="" name="author">
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Custom App Page Styles */
+        .app-feature-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .app-feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.07);
+            border-color: var(--color-primary);
+        }
+        .phone-mockup {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .phone-mockup .screen {
+            position: absolute;
+            top: 5.5%;
+            left: 6.5%;
+            width: 87%;
+            height: 89%;
+            border-radius: 25px;
+            overflow: hidden;
+            background: #000;
+        }
+        .app-screenshot {
+            transition: all 0.5s ease;
+        }
+        .app-screenshot:hover {
+            transform: scale(1.03);
+        }
+        .download-badge {
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        .download-badge:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        .feature-step {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 30px;
+        }
+        .feature-step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .black-container
+        {
+            color: black;
+        }
+        .white-container
+        {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+      <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent">
+            <div id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-between xs-hide">
+                                <div class="d-flex">
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-clock-time"></i>Monday
+                                            - Friday 08.00 - 18.00</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i
+                                                class="icofont-envelope"></i>contact@Autonic .com</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-phone"></i>+1 609
+                                            535-2692</a></div>
+                                </div>
+
+                               <div class="login-signup" style="display:grid ; align-items: center;" >
+                                    <div style="display: flex;">
+                                   <a href="quote.html"  style="border: none;padding:0px 5px;">Request a Quote</a>
+        <a href="https://infinicrm.com/admin/authentication" style="border: none; padding: 0px 5px;">Login</a>
+        <a href="signup.html" style="padding: 0px 5px;" >Sign Up</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- side navbar starts from here -->
+            <div class="side-nav" id="sideNav">
+                <div class="side-nav-links">
+                    <a href="index.html" style="color: white;">Home</a>
+                    <a href="about.html" style="color: white;">About</a>
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+                            <a href="services.html" style="color: white;">Services</a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div>
+                    </div>
+                    <!-- second oen -->
+
+                    <!-- Toggling Services Dropdown in Side Nav -->
+                  <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="complete_products_section.html" style="color: white;">Products</a>
+                            <!-- <span class="dropdown-toggle" style="color: white;"></span> -->
+                        </div>
+                        <!-- <div class="side-dropdown-menu">
+                            <a href="#" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div> -->
+                    </div>
+                    <a href="industries.html" style="color: white;">Industries</a>
+
+                    <!-- third one starts from here -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="technology.html" style="color: white;">Technology </a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="software.html" style="color: black;">Software</a>
+                            <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                            <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                        </div>
+                    </div>
+
+                    <a href="SustainabilityRecycling.html" style="color: white;">Sustainability & Recycling</a>
+                    <a href="contact.html" style="color: white;">Contact</a>
+                    <a href="carrers.html" style="color: white;">Careers</a>
+                    <a href="quote.html" style="border: none;">Request a Quote</a>
+                    <a href="https://infinicrm.com/admin/authentication" style="border: none;">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+            <!-- side navbar ends from here  -->
+            <div id="hamburger-container">
+                <div class="hamburger" id="hamburger">
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                </div>
+            </div>
+            <!-- hamburger ending -->
+            <!-- this where the navbar is starting from  -->
+            <div id="navbar">
+                <div class="navbar-container">
+                    <!-- Hamburger -->
+
+                    <!-- hamburger ends here -->
+                    <!-- Logo -->
+                    <div class="navbar-logo">
+                        <a href="index.html" class="nav-logo">
+                            <img class="logo-main" src="images/Autonic-white.png" alt="">
+                            <img class="logo-mobile" src="images/logo-white.webp" alt=""> </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="navbar-menu">
+                        <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                        <a href="about.html" class="nav-link" style="color: white;">About</a>
+
+                        <div class="nav-dropdown">
+                            <a href="services.html" class="nav-link" style="color: white;">Services ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                                <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                    Collection</a>
+                                <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                    Recycling</a>
+                                <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking &
+                                    Analytics</a>
+                                <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                                <a href="faq.html" style="color: black;">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-dropdown">
+                            <a href="complete_products_section.html" class="nav-link" style="color: white;">Products</a>
+
+                        </div> <a href="industries.html" class="nav-link" style="color: white;">Industries</a>
+                        <div class="nav-dropdown">
+                            <a href="technology.html" class="nav-link" style="color: white;">Technology ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="software.html" style="color: black;">Software</a>
+                                <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                                <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                            </div>
+                        </div> <a href="SustainabilityRecycling.html" class="nav-link"
+                            style="color: white;">Sustainability & Recycling</a>
+                        <a href="contact.html" class="nav-link" style="color: white;">Contact</a>
+                        <a href="carrers.html" class="nav-link" style="color: white;">Careers</a>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="navbar-buttons">
+                        <!-- <a href="quote.html" class="nav-button light" style="border: none;">Request a Quote</a>
+                        <a href="https://infinicrm.com/admin/authentication" class="nav-button"
+                            style="border: none;">Login</a>
+                        <a href="signup.html" class="nav-button">Sign Up</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- this is where the navbar is ending -->
+        </header>
+    <!-- Header End -->
+<!-- Hero Section Start -->
+<div style="background-color: #1C4B41; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 20px; text-align: center; color: white;">
+    <h1 style="font-size: 2rem; max-width: 800px; margin-bottom: 30px; color: #fff;">
+        Your pocket companion for smarter waste management and recycling.
+    </h1>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <a href="#download" style="background-color: #ffffff; color: #006400; padding: 12px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" style="width: 20px; height: 20px;">
+            App Store
+        </a>
+
+        <a href="#download" style="background-color: #ffffff; color: #006400; padding: 12px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Google Play" style="width: 20px; height: 20px;">
+            Google Play
+        </a>
+
+        <a href="#features" style="border: 2px solid white; padding: 12px 18px; border-radius: 5px; text-decoration: none; color: white; font-weight: bold;">
+            Explore Features
+        </a>
+    </div>
+</div>
+<!-- Hero Section End -->
+
+
+
+<!-- APP BADGES SECTION -->
+<!-- <section class="pt-20 pb-20 bg-dark" style="background-color: #111; padding: 40px 0;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-10">
+                <div class="d-flex flex-wrap align-items-center justify-content-center gap-4">
+                    <img src="assests/googleplay(appstorereal).jpg" class="download-badge wow fadeInUp" data-wow-delay="0s" alt="App Store" style="height: 60px;">
+                    <img src="assests/appstore.jpg" class="download-badge wow fadeInUp" data-wow-delay="0.1s" alt="Google Play" style="height: 60px;">
+                    <img src="assests/Appgallery.jpg" class="download-badge wow fadeInUp" data-wow-delay="0.2s" alt="AppGallery" style="height: 60px;">
+                    <div class="d-flex align-items-center ms-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="me-3" style="text-align: left;">
+                            <div style="font-size: 12px; opacity: 0.5;">Average Rating</div>
+                            <div style="font-size: 20px; font-weight: bold;">4.8/5</div>
+                        </div>
+                        <div class="star-rating" style="color: gold; font-size: 18px;">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+        <!-- Key Features -->
+        <section id="features" class="pt-100 pb-70">
+            <div class="container">
+                <div class="row g-4 justify-content-center text-center mb-5">
+                    <div class="col-lg-8">
+                        <div class="subtitle wow fadeInUp">Powerful Features</div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".2s">Everything You Need in One App</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0s">
+                        <div class="app-feature-card">
+                            <!-- <img src="images/app/icon-schedule.webp" class="w-60px mb-4" alt="Schedule"> -->
+                            <h4>Smart Scheduling</h4>
+                            <p class="black-container">Get personalized collection reminders and service alerts based on your location and waste type.</p>
+                            <ul class="ul-check mt-3 black-container">
+                                <li>Custom notification preferences</li>
+                                <li>Holiday schedule adjustments</li>
+                                <li>Service change alerts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="app-feature-card">
+                            <!-- <img src="images/app/icon-recycle.webp" class="w-60px mb-4" alt="Recycle"> -->
+                            <h4>Recycling Guide</h4>
+                            <p class="black-container">AI-powered waste identification and local recycling rules at your fingertips.</p>
+                            <ul class="ul-check mt-3 black-container">
+                                <li>Scan items to identify proper disposal</li>
+                                <li>Local facility information</li>
+                                <li>Contamination prevention tips</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="app-feature-card">
+                            <!-- <img src="images/app/icon-track.webp" class="w-60px mb-4" alt="Track"> -->
+                            <h4>Real-Time Tracking</h4>
+                            <p class="black-container">Monitor your waste collection progress and driver ETA in real-time.</p>
+                            <ul class="ul-check mt-3 black-container">
+                                <li>Live vehicle tracking</li>
+                                <li>Collection verification</li>
+                                <li>Service issue reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      
+
+        <!-- How It Works -->
+        <section class="pt-100 pb-100">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp">
+                        <div class="subtitle">Getting Started</div>
+                        <h2>Simple Setup Process</h2>
+                        <p class="black-container">The Autonic app connects seamlessly with your waste management services in just a few steps.</p>
+                        
+                        <div class="feature-step wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="feature-step-number black-container">1</div>
+                            <div>
+                                <h5>Download & Install</h5>
+                                <p class="black-container">Available on iOS, Android, and Huawei AppGallery. Less than 50MB download size.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-step wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="feature-step-number black-container">2</div>
+                            <div>
+                                <h5>Account Creation</h5>
+                                <p class="black-container">Sign up with email, phone, or social accounts. Business accounts available.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-step wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="feature-step-number black-container">3</div>
+                            <div>
+                                <h5>Service Activation</h5>
+                                <p class="black-container">Enter your address or scan QR code on your bin to activate services.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow zoomIn" data-wow-delay="0.3s">
+                        <img src="assests/wastemanagement mobile.jpg" class="w-100 rounded-3 shadow-soft" alt="Setup Process">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="pt-100 pb-100 jarallax " style="color: #000;">
+            <div class="container">
+                <div class="row g-4 justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h2 class="wow fadeInUp">Download the App Today</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".3s">Join thousands of users managing their waste smarter.</p>
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4 wow fadeInUp" data-wow-delay=".6s">
+                            <a href="#" class="btn-main btn-lg">
+                                <i class="fab fa-apple me-2"></i>App Store
+                            </a>
+                            <a href="#" class="btn-main btn-lg">
+                                <i class="fab fa-google-play me-2"></i>Google Play
+                            </a>
+                          
+                        </div>
+                        <div class="mt-4 wow fadeInUp" data-wow-delay=".9s">
+                            <p class="small opacity-70">Compatible with iOS 13+ and Android 8+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+     
+        <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/Autonic-white.png" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>
+     At Autonic, we are dedicated to delivering reliable, intelligent, and eco-conscious waste management solutions designed to meet the specific needs of residential, commercial, and industrial sectors. By integrating cutting-edge automation with sustainable practices, we aim to minimize environmental impact, enhance operational efficiency, and drive a cleaner, smarter future for communities and the planet.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                              <li>
+                    <a href="smartwastesorting.html" >Smart Sorting</a>
+                </li>
+                <li>
+                    <a href="routeoptimization.html" >Route Optimization for- Waste
+                        Collection</a>
+                </li>
+                <li>
+                    <a href="contaminationdetection.html" >Contamination Detection in-
+                        Recycling</a>
+                </li>
+                <li>
+                    <a href="wastetrackinganalytics.html" >Waste Tracking &
+                        Analytics</a>
+                </li>
+                <li>
+                    <a href="circulareconomy.html" >Circular Economy Marketplace</a>
+                </li>
+                <li>
+                    <a href="faq.html" >FAQ</a>
+                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- footer end -->
+
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script>
+        // Initialize App Screenshots Swiper
+        const appSwiper = new Swiper('.app-screenshots', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // Mobile menu toggle (if not in header)
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const sideNav = document.getElementById('sideNav');
+            
+            if (hamburger && sideNav) {
+                hamburger.addEventListener('click', () => {
+                    sideNav.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

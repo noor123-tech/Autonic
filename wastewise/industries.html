@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Autonic — Industry-Specific Waste Management Solutions</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta
+        content="Autonic provides customized waste management and recycling solutions for every industry including manufacturing, healthcare, education, and corporate sectors"
+        name="description">
+    <meta
+        content="industrial waste management, healthcare waste disposal, school recycling programs, corporate sustainability"
+        name="keywords">
+    <meta content="Autonic" name="author">
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+
+    <style>
+        /* Industries Page Custom Styles */
+        .industries-hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+            padding-top: 20%;
+        }
+
+        .industries-hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .industries-hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .industry-section {
+            padding: 100px 0;
+            color: black;
+        }
+
+        .industry-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .industry-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .industry-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .industry-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .industry-card:hover .industry-img img {
+            transform: scale(1.1);
+        }
+
+        .industry-content {
+            padding: 30px;
+        }
+
+        .industry-icon {
+            width: 70px;
+            height: 70px;
+            background: #E8F5E9;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .industry-icon i {
+            font-size: 32px;
+            color: #2E7D32;
+        }
+
+        .industry-features {
+            margin: 20px 0;
+        }
+
+        .industry-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .industry-feature i {
+            color: #2E7D32;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .industry-stats {
+            background: linear-gradient(135deg, #1a2e35 0%, #2E7D32 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-stats h2 {
+            color: white;
+            font-weight: bold;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .solution-section {
+            padding: 100px 0;
+            background: white;
+            color: black;
+        }
+
+        .solution-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .solution-card:hover {
+            background: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: #E8F5E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .solution-icon i {
+            font-size: 28px;
+            color: #2E7D32;
+        }
+
+        .cta-industries {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .industries-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .industries-hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+         <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent">
+            <div id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-between xs-hide">
+                                <div class="d-flex">
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-clock-time"></i>Monday
+                                            - Friday 08.00 - 18.00</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i
+                                                class="icofont-envelope"></i>contact@Autonic .com</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-phone"></i>+1 609
+                                            535-2692</a></div>
+                                </div>
+
+                               <div class="login-signup" style="display:grid ; align-items: center;" >
+                                    <div style="display: flex;">
+                                   <a href="quote.html"  style="border: none;padding:0px 5px;">Request a Quote</a>
+        <a href="https://infinicrm.com/admin/authentication" style="border: none; padding: 0px 5px;">Login</a>
+        <a href="signup.html" style="padding: 0px 5px;" >Sign Up</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- side navbar starts from here -->
+            <div class="side-nav" id="sideNav">
+                <div class="side-nav-links">
+                    <a href="index.html" style="color: white;">Home</a>
+                    <a href="about.html" style="color: white;">About</a>
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+                            <a href="services.html" style="color: white;">Services</a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div>
+                    </div>
+                    <!-- second oen -->
+
+                    <!-- Toggling Services Dropdown in Side Nav -->
+               <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="complete_products_section.html" style="color: white;">Products</a>
+                            <!-- <span class="dropdown-toggle" style="color: white;"></span> -->
+                        </div>
+                        <!-- <div class="side-dropdown-menu">
+                            <a href="#" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div> -->
+                    </div>
+                    <a href="industries.html" style="color: white;">Industries</a>
+
+                    <!-- third one starts from here -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="technology.html" style="color: white;">Technology </a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="software.html" style="color: black;">Software</a>
+                            <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                            <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                        </div>
+                    </div>
+
+                    <a href="SustainabilityRecycling.html" style="color: white;">Sustainability & Recycling</a>
+                    <a href="contact.html" style="color: white;">Contact</a>
+                    <a href="carrers.html" style="color: white;">Careers</a>
+                    <a href="quote.html" style="border: none;">Request a Quote</a>
+                    <a href="https://infinicrm.com/admin/authentication" style="border: none;">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+            <!-- side navbar ends from here  -->
+            <div id="hamburger-container">
+                <div class="hamburger" id="hamburger">
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                </div>
+            </div>
+            <!-- hamburger ending -->
+            <!-- this where the navbar is starting from  -->
+            <div id="navbar">
+                <div class="navbar-container">
+                    <!-- Hamburger -->
+
+                    <!-- hamburger ends here -->
+                    <!-- Logo -->
+                    <div class="navbar-logo">
+                        <a href="index.html" class="nav-logo">
+                               <img class="logo-main" src="images/Autonic-white.png" alt="">
+                            <img class="logo-mobile" src="images/logo-white.webp" alt=""> </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="navbar-menu">
+                        <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                        <a href="about.html" class="nav-link" style="color: white;">About</a>
+
+                        <div class="nav-dropdown">
+                            <a href="services.html" class="nav-link" style="color: white;">Services ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                                <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                    Collection</a>
+                                <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                    Recycling</a>
+                                <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking &
+                                    Analytics</a>
+                                <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                                <a href="faq.html" style="color: black;">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-dropdown">
+                            <a href="complete_products_section.html" class="nav-link" style="color: white;">Products</a>
+
+                        </div> <a href="industries.html" class="nav-link" style="color: white;">Industries</a>
+                        <div class="nav-dropdown">
+                            <a href="technology.html" class="nav-link" style="color: white;">Technology ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="software.html" style="color: black;">Software</a>
+                                <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                                <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                            </div>
+                        </div> <a href="SustainabilityRecycling.html" class="nav-link"
+                            style="color: white;">Sustainability & Recycling</a>
+                        <a href="contact.html" class="nav-link" style="color: white;">Contact</a>
+                        <a href="carrers.html" class="nav-link" style="color: white;">Careers</a>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="navbar-buttons">
+                        <!-- <a href="quote.html" class="nav-button light" style="border: none;">Request a Quote</a>
+                        <a href="https://infinicrm.com/admin/authentication" class="nav-button"
+                            style="border: none;">Login</a>
+                        <a href="signup.html" class="nav-button">Sign Up</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- this is where the navbar is ending -->
+        </header>
+        <!-- header end -->
+
+        <!-- Industries Hero Section -->
+        <section class="industries-hero">
+            <div class="container">
+                <h1 class="industries-hero-title wow fadeInDown">Industry-Specific Waste Solutions</h1>
+                <p class="industries-hero-subtitle wow fadeInUp" data-wow-delay="0.2s">Customized waste management and
+                    recycling programs designed for the unique needs of every sector</p>
+                <!-- <a href="#solutions" class="btn-main btn-light wow fadeInUp" data-wow-delay="0.4s">Explore Solutions</a> -->
+            </div>
+        </section>
+
+        <!-- Manufacturing Industry -->
+        <section class="industry-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-1 order-2 wow fadeInLeft">
+                        <div class="industry-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h2>Manufacturing & Industrial</h2>
+                        <p>Comprehensive waste management solutions for factories, plants, and industrial facilities. We
+                            handle everything from hazardous materials to production byproducts with maximum efficiency
+                            and compliance.</p>
+
+                        <div class="industry-features">
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Hazardous Waste Management</h4>
+                                    <p>Safe handling and disposal of industrial byproducts and chemicals</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Production Scrap Recycling</h4>
+                                    <p>Maximize recovery of valuable materials from manufacturing processes</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Regulatory Compliance</h4>
+                                    <p>Full documentation and reporting for environmental regulations</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <a href="industrial-solutions.html" class="btn-main">Learn More</a> -->
+                    </div>
+                    <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0 wow fadeInRight">
+                        <div class="industry-card floating">
+                            <div class="industry-img">
+                                <img src="assests-industrypage/Manufacturing & Industrial.jpeg" alt="Manufacturing Waste Management">
+                            </div>
+                            <div class="industry-content">
+                                <h3>Industrial Waste Streams We Handle</h3>
+                                <ul>
+                                    <li>Metal scraps and production waste</li>
+                                    <li>Chemical byproducts and solvents</li>
+                                    <li>Packaging materials and pallets</li>
+                                    <li>Oil and lubricant disposal</li>
+                                    <li>Electronic waste from equipment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Healthcare Industry -->
+        <section class="industry-section" style="background: #f0f8f0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0 wow fadeInLeft">
+                        <div class="industry-card floating delay-1">
+                            <div class="industry-img">
+                                <img src="assests-industrypage/medicalwaste.jpeg" alt="Healthcare Waste Management">
+                            </div>
+                            <div class="industry-content">
+                                <h3>Medical Waste Solutions</h3>
+                                <ul>
+                                    <li>Biohazard and sharps disposal</li>
+                                    <li>Pharmaceutical waste management</li>
+                                    <li>Chemotherapy waste handling</li>
+                                    <li>Pathological waste solutions</li>
+                                    <li>Regulated medical waste tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="industry-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h2>Healthcare & Medical</h2>
+                        <p>Specialized waste management for hospitals, clinics, and healthcare facilities that meets
+                            strict hygiene and compliance standards while reducing environmental impact.</p>
+
+                        <div class="industry-features">
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Biohazard Disposal</h4>
+                                    <p>Safe handling of infectious and hazardous medical waste</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>HIPAA Compliance</h4>
+                                    <p>Secure disposal of sensitive patient information</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Pharmaceutical Waste</h4>
+                                    <p>Proper disposal of expired or unused medications</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <a href="healthcare-solutions.html" class="btn-main">Learn More</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Industry -->
+        <section class="industry-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-1 order-2 wow fadeInLeft">
+                        <div class="industry-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h2>Education & Institutions</h2>
+                        <p>Custom waste and recycling programs for schools, universities, and government facilities that
+                            promote sustainability while handling diverse waste streams.</p>
+
+                        <div class="industry-features">
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Campus Recycling</h4>
+                                    <p>Comprehensive programs for paper, plastics, and electronics</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Educational Programs</h4>
+                                    <p>Engaging students and staff in sustainability initiatives</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Special Events</h4>
+                                    <p>Waste management for sporting events and campus activities</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <a href="education-solutions.html" class="btn-main">Learn More</a> -->
+                    </div>
+                    <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0 wow fadeInRight">
+                        <div class="industry-card floating delay-2">
+                            <div class="industry-img">
+                                <img src="assests-industrypage/schoolwaste.jpeg" alt="Education Waste Management">
+                            </div>
+                            <div class="industry-content">
+                                <h3>School Waste Solutions</h3>
+                                <ul>
+                                    <li>Cafeteria and food waste programs</li>
+                                    <li>Classroom and office recycling</li>
+                                    <li>Science lab waste disposal</li>
+                                    <li>E-waste from computer labs</li>
+                                    <li>Outdoor and grounds maintenance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corporate Industry -->
+        <section class="industry-section" style="background: #f0f8f0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0 wow fadeInLeft">
+                        <div class="industry-card floating delay-3">
+                            <div class="industry-img">
+                                <img src="assests-industrypage/corporate&commercial.jpeg" alt="Corporate Waste Management">
+                            </div>
+                            <div class="industry-content">
+                                <h3>Office Waste Solutions</h3>
+                                <ul>
+                                    <li>Paper and cardboard recycling</li>
+                                    <li>Secure document destruction</li>
+                                    <li>E-waste and IT asset disposal</li>
+                                    <li>Breakroom and kitchen waste</li>
+                                    <li>LEED certification support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="industry-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2>Corporate & Commercial</h2>
+                        <p>Sustainable waste management solutions for office buildings, retail centers, and corporate
+                            campuses that enhance your sustainability goals and reduce costs.</p>
+
+                        <div class="industry-features">
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Waste Audits</h4>
+                                    <p>Comprehensive analysis of your waste streams</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Secure Shredding</h4>
+                                    <p>Confidential document destruction services</p>
+                                </div>
+                            </div>
+                            <div class="industry-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Sustainability Reporting</h4>
+                                    <p>Detailed metrics for ESG and CSR initiatives</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <a href="corporate-solutions.html" class="btn-main">Learn More</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Industries -->
+        <section class="industry-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-60 wow fadeInUp">
+                        <h2>We Serve All Industries</h2>
+                        <p>Comprehensive waste management solutions for every sector</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <div class="industry-card">
+                            <div class="industry-img">
+                                <img src="assests-industrypage/hospitalmanagement.jpeg" alt="Hospitality Waste Management">
+                            </div>
+                            <div class="industry-content">
+                                <div class="industry-icon" style="width: 50px; height: 50px;">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h3>Hospitality & Food Service</h3>
+                                <p>Specialized solutions for hotels, restaurants, and catering businesses including food
+                                    waste composting and grease trap maintenance.</p>
+                                <!-- <a href="hospitality-solutions.html" class="btn-main btn-sm">Explore</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="industry-card">
+                            <div class="industry-img">
+                                <img src="assests-industrypage/constructionmanagement.jpeg" alt="Construction Waste Management">
+                            </div>
+                            <div class="industry-content">
+                                <div class="industry-icon" style="width: 50px; height: 50px;">
+                                    <i class="fas fa-hard-hat"></i>
+                                </div>
+                                <h3>Construction & Demolition</h3>
+                                <p>Efficient handling of construction debris, concrete, wood, and other materials with
+                                    high recycling rates and proper disposal.</p>
+                                <!-- <a href="construction-solutions.html" class="btn-main btn-sm">Explore</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="industry-card">
+                            <div class="industry-img">
+                                <img src="assests-industrypage/mall.jpeg" alt="Retail Waste Management">
+                            </div>
+                            <div class="industry-content">
+                                <div class="industry-icon" style="width: 50px; height: 50px;">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <h3>Retail & Shopping Centers</h3>
+                                <p>Custom programs for stores and malls including packaging waste, hanger recycling, and
+                                    seasonal waste management.</p>
+                                <!-- <a href="retail-solutions.html" class="btn-main btn-sm">Explore</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Stats Section -->
+        <section class="industry-stats">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-60 wow fadeInUp">
+                        <h2>Our Impact Across Industries</h2>
+                        <p>Proven results delivering sustainable waste solutions</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp">
+                        <div class="stat-card">
+                            <div class="stat-number">1,200+</div>
+                            <div class="stat-label">Industrial Facilities Served</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="stat-card">
+                            <div class="stat-number">850+</div>
+                            <div class="stat-label">Healthcare Partners</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="stat-card">
+                            <div class="stat-number">2,500+</div>
+                            <div class="stat-label">Educational Institutions</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="stat-card">
+                            <div class="stat-number">3M+</div>
+                            <div class="stat-label">Tons Diverted Annually</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cross-Industry Solutions -->
+        <section class="solution-section" id="solutions">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-60 wow fadeInUp">
+                        <h2>Comprehensive Waste Solutions</h2>
+                        <p>Our full range of services available to all industries</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <div class="solution-card">
+                            <div class="solution-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <h3>Recycling Programs</h3>
+                            <p>Customized recycling solutions for paper, plastics, metals, glass, and specialized
+                                materials with transparent reporting.</p>
+                            <!-- <a href="#" class="btn-main btn-sm">Learn More</a> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="solution-card">
+                            <div class="solution-icon">
+                                <i class="fas fa-trash-alt"></i>
+                            </div>
+                            <h3>Waste Collection</h3>
+                            <p>Reliable and efficient waste removal services with optimized routes and environmentally
+                                responsible disposal.</p>
+                            <!-- <a href="#" class="btn-main btn-sm">Learn More</a> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="solution-card">
+                            <div class="solution-icon">
+                                <i class="fas fa-biohazard"></i>
+                            </div>
+                            <h3>Hazardous Waste</h3>
+                            <p>Safe, compliant handling and disposal of hazardous materials with full documentation and
+                                tracking.</p>
+                            <!-- <a href="#" class="btn-main btn-sm">Learn More</a> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <div class="solution-card">
+                            <div class="solution-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3>E-Waste Recycling</h3>
+                            <p>Secure and responsible disposal of electronics with data destruction and maximum material
+                                recovery.</p>
+                            <!-- <a href="#" class="btn-main btn-sm">Learn More</a> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="solution-card">
+                            <div class="solution-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Document Destruction</h3>
+                            <p>Secure shredding services with chain-of-custody documentation for sensitive information
+                                protection.</p>
+                            <!-- <a href="#" class="btn-main btn-sm">Learn More</a> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="solution-card">
+                            <div class="solution-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3>Organics & Composting</h3>
+                            <p>Food waste and organic material processing that reduces landfill impact and creates
+                                valuable compost.</p>
+                            <!-- <a href="#" class="btn-main btn-sm">Learn More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-industries">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 wow fadeInUp">
+                        <h2 class="cta-title">Custom Solutions for Your Industry</h2>
+                        <p class="mb-5">Our experts will design a waste management program tailored to your specific
+                            needs and challenges.</p>
+                        <a href="quote.html" class="btn-main btn-light me-3">Get a Quote</a>
+                        <a href="contact.html" class="btn-main btn-outline-light">Contact Our Team</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (same as your existing footer) -->
+      
+        <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/Autonic-white.png" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>
+     At Autonic, we are dedicated to delivering reliable, intelligent, and eco-conscious waste management solutions designed to meet the specific needs of residential, commercial, and industrial sectors. By integrating cutting-edge automation with sustainable practices, we aim to minimize environmental impact, enhance operational efficiency, and drive a cleaner, smarter future for communities and the planet.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                              <li>
+                    <a href="smartwastesorting.html" >Smart Sorting</a>
+                </li>
+                <li>
+                    <a href="routeoptimization.html" >Route Optimization for- Waste
+                        Collection</a>
+                </li>
+                <li>
+                    <a href="contaminationdetection.html" >Contamination Detection in-
+                        Recycling</a>
+                </li>
+                <li>
+                    <a href="wastetrackinganalytics.html" >Waste Tracking &
+                        Analytics</a>
+                </li>
+                <li>
+                    <a href="circulareconomy.html" >Circular Economy Marketplace</a>
+                </li>
+                <li>
+                    <a href="faq.html" >FAQ</a>
+                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- footer end -->
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/custom-swiper-1.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        // Additional animations for industry cards
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animate industry cards on scroll
+            const industryCards = document.querySelectorAll('.industry-card');
+            industryCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-15px)';
+                });
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(-10px)';
+                });
+            });
+
+            // Animate solution cards
+            const solutionCards = document.querySelectorAll('.solution-card');
+            solutionCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.boxShadow = '0 20px 50px rgba(0,0,0,0.15)';
+                });
+                card.addEventListener('mouseleave', function () {
+                    this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.1)';
+                });
+            });
+        });
+
+
+
+    const hamburger = document.getElementById('hamburger');
+    const sideNav = document.getElementById('sideNav');
+
+    hamburger.addEventListener('click', () => {
+      sideNav.classList.toggle('open');
+    });
+
+    // Optional: Click outside to close
+    window.addEventListener('click', (e) => {
+      if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+        sideNav.classList.remove('open');
+      }
+    });
+    const carets = document.querySelectorAll('.dropdown-toggle');
+
+carets.forEach(caret => {
+  caret.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click bubbling
+    const sideDropdown = caret.closest('.side-dropdown');
+    sideDropdown.classList.toggle('open');
+  });
+});
+
+    </script>
+</body>
+
+</html>

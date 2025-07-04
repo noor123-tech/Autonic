@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Autonic — Waste Management and Recycling Website Template</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Autonic  — Waste Management and Recycling Website Template" name="description">
+    <meta content="" name="keywords">
+    <meta content="" name="author">
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+
+    <style>
+        :root {
+            --green: #2e7d32;
+            --light-green: #81c784;
+            --dark-green: #1b5e20;
+            --white: #ffffff;
+            --black: #333333;
+            --gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            color: var(--black);
+            line-height: 1.6;
+            background-color: var(--gray);
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMATION CLASSES ===== */
+        .animate-from-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-bottom {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-top {
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        .animate-rotate {
+            opacity: 0;
+            transform: rotate(5deg);
+            transition: all 0.8s ease;
+        }
+
+        .animated {
+            opacity: 1;
+            transform: translateX(0) translateY(0) scale(1) rotate(0);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            margin-right: 12px;
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover img {
+            transform: rotate(15deg);
+        }
+
+        .logo h1 {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.6rem;
+            background: linear-gradient(to right, var(--green), var(--light-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--green), var(--dark-green));
+            color: var(--white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.4s;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(1px);
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--light-green), var(--green));
+            color: var(--white);
+            padding: 10rem 5% 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f5f5f5" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f5f5f5" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f5f5f5"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            margin-top: 3rem;
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateX(10deg);
+            transition: transform 0.5s;
+        }
+
+        .hero-image:hover {
+            transform: perspective(1000px) rotateX(0);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== MARKETPLACE SECTION ===== */
+        .marketplace {
+            padding: 6rem 5%;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h3 {
+            font-size: 2.3rem;
+            color: var(--green);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h3:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--light-green);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--black);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--white);
+            border: 1px solid var(--light-green);
+            border-radius: 30px;
+            font-weight: 500;
+            color: var(--dark-green);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--light-green);
+            color: var(--white);
+        }
+
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--light-green);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--light-green);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--black);
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gray);
+            color: var(--dark-green);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--light-green);
+            color: var(--white);
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits {
+            padding: 6rem 5%;
+            background-color: var(--gray);
+        }
+
+        .benefits-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .benefits-image {
+            flex: 1;
+            position: relative;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .benefits-content {
+            flex: 1;
+        }
+
+        .benefits-content h3 {
+            font-size: 2rem;
+            color: var(--green);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .benefit-item:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--light-green);
+            font-size: 1.2rem;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.2rem;
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item p {
+            color: #555;
+        }
+
+        /* ===== HOW IT WORKS SECTION ===== */
+        .process {
+            padding: 6rem 5%;
+            background-color: var(--white);
+        }
+
+        .process-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-step {
+            display: flex;
+            margin-bottom: 3rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-green), var(--green));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            flex-grow: 1;
+            position: relative;
+            border-left: 4px solid var(--light-green);
+        }
+
+        .step-content h4 {
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            color: #555;
+        }
+
+        .process-connector {
+            position: absolute;
+            left: 30px;
+            top: 60px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--light-green), var(--green));
+            z-index: 1;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            padding: 6rem 5%;
+            background-color: var(--gray);
+        }
+
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: none;
+            position: relative;
+            border: 1px solid rgba(129, 199, 132, 0.3);
+        }
+
+        .testimonial-slide:before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--light-green);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--green);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-position {
+            font-size: 0.95rem;
+            color: #777;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 7px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: var(--green);
+            transform: scale(1.2);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 6rem 5%;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(129, 199, 132, 0.1), rgba(46, 125, 50, 0.05));
+            padding: 4rem;
+            border-radius: 15px;
+            border: 1px solid rgba(129, 199, 132, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(129, 199, 132, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: 0;
+        }
+
+        .cta-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-green);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content p {
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+            position: relative;
+        }
+
+        .footer-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: radial-gradient(var(--light-green) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h4 {
+            color: var(--light-green);
+            margin-bottom: 1.8rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--light-green);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-column a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .benefits-container {
+                flex-direction: column;
+            }
+            
+            .benefits-image {
+                order: -1;
+                height: 400px;
+                width: 100%;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .step-number {
+                margin-bottom: 1.5rem;
+                margin-right: 0;
+            }
+            
+            .process-connector {
+                left: 30px;
+                top: 60px;
+                bottom: 0;
+                height: calc(100% - 60px);
+                width: 2px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 1rem;
+            }
+
+            .hero {
+                padding-top: 8rem;
+                padding-bottom: 4rem;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .section-title h3 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .marketplace-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+       <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent">
+            <div id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-between xs-hide">
+                                <div class="d-flex">
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-clock-time"></i>Monday
+                                            - Friday 08.00 - 18.00</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i
+                                                class="icofont-envelope"></i>contact@Autonic .com</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-phone"></i>+1 609
+                                            535-2692</a></div>
+                                </div>
+
+                               <div class="login-signup" style="display:grid ; align-items: center;" >
+                                    <div style="display: flex;">
+                                   <a href="quote.html"  style="border: none;padding:0px 5px;">Request a Quote</a>
+        <a href="https://infinicrm.com/admin/authentication" style="border: none; padding: 0px 5px;">Login</a>
+        <a href="signup.html" style="padding: 0px 5px;" >Sign Up</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- side navbar starts from here -->
+            <div class="side-nav" id="sideNav">
+                <div class="side-nav-links">
+                    <a href="index.html" style="color: white;">Home</a>
+                    <a href="about.html" style="color: white;">About</a>
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+                            <a href="services.html" style="color: white;">Services</a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div>
+                    </div>
+                    <!-- second oen -->
+
+                    <!-- Toggling Services Dropdown in Side Nav -->
+                 <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="complete_products_section.html" style="color: white;">Products</a>
+                            <!-- <span class="dropdown-toggle" style="color: white;"></span> -->
+                        </div>
+                        <!-- <div class="side-dropdown-menu">
+                            <a href="#" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div> -->
+                    </div>
+                    <a href="industries.html" style="color: white;">Industries</a>
+
+                    <!-- third one starts from here -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="technology.html" style="color: white;">Technology </a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="software.html" style="color: black;">Software</a>
+                            <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                            <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                        </div>
+                    </div>
+
+                    <a href="SustainabilityRecycling.html" style="color: white;">Sustainability & Recycling</a>
+                    <a href="contact.html" style="color: white;">Contact</a>
+                    <a href="carrers.html" style="color: white;">Careers</a>
+                    <a href="quote.html" style="border: none;">Request a Quote</a>
+                    <a href="https://infinicrm.com/admin/authentication" style="border: none;">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+            <!-- side navbar ends from here  -->
+            <div id="hamburger-container">
+                <div class="hamburger" id="hamburger">
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                </div>
+            </div>
+            <!-- hamburger ending -->
+            <!-- this where the navbar is starting from  -->
+            <div id="navbar">
+                <div class="navbar-container">
+                    <!-- Hamburger -->
+
+                    <!-- hamburger ends here -->
+                    <!-- Logo -->
+                    <div class="navbar-logo">
+                        <a href="index.html" class="nav-logo">
+                              <img class="logo-main" src="images/Autonic-white.png" alt="">
+                            <img class="logo-mobile" src="images/logo-white.webp" alt=""> </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="navbar-menu">
+                        <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                        <a href="about.html" class="nav-link" style="color: white;">About</a>
+
+                        <div class="nav-dropdown">
+                            <a href="services.html" class="nav-link" style="color: white;">Services ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                                <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                    Collection</a>
+                                <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                    Recycling</a>
+                                <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking &
+                                    Analytics</a>
+                                <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                                <a href="faq.html" style="color: black;">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-dropdown">
+                            <a href="complete_products_section.html" class="nav-link" style="color: white;">Products</a>
+
+                        </div> <a href="industries.html" class="nav-link" style="color: white;">Industries</a>
+                        <div class="nav-dropdown">
+                            <a href="technology.html" class="nav-link" style="color: white;">Technology ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="software.html" style="color: black;">Software</a>
+                                <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                                <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                            </div>
+                        </div> <a href="SustainabilityRecycling.html" class="nav-link"
+                            style="color: white;">Sustainability & Recycling</a>
+                        <a href="contact.html" class="nav-link" style="color: white;">Contact</a>
+                        <a href="carrers.html" class="nav-link" style="color: white;">Careers</a>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="navbar-buttons">
+                        <!-- <a href="quote.html" class="nav-button light" style="border: none;">Request a Quote</a>
+                        <a href="https://infinicrm.com/admin/authentication" class="nav-button"
+                            style="border: none;">Login</a>
+                        <a href="signup.html" class="nav-button">Sign Up</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- this is where the navbar is ending -->
+        </header>
+
+
+    <section class="hero">
+        <div class="hero-content animate-from-bottom">
+            <h2>Buy, Sell & Trade in the Circular Economy</h2>
+            <p>Connect with businesses and individuals to give materials a second life. Reduce waste, save money, and build sustainable supply chains.</p>
+            <div class="hero-buttons">
+                <!-- <a href="#" class="cta-button">Browse Listings</a>
+                <a href="#" class="secondary-button">Learn More</a> -->
+            </div>
+        </div>
+        <div class="hero-image animate-from-top">
+            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Circular Economy Marketplace">
+        </div>
+    </section>
+
+    <section class="marketplace" id="marketplace">
+        <div class="section-title animate-from-bottom">
+            <h3>Featured Materials & Products</h3>
+            <p>Discover high-quality resources that are ready for their next life cycle</p>
+        </div>
+        <!-- <div class="categories">
+            <button class="category-btn active">All Categories</button>
+            <button class="category-btn">Industrial Materials</button>
+            <button class="category-btn">Packaging</button>
+            <button class="category-btn">Textiles</button>
+            <button class="category-btn">Electronics</button>
+            <button class="category-btn">Construction</button>
+        </div> -->
+        <div class="marketplace-grid">
+            <div class="product-card animate-from-left">
+                <div class="product-badge">New</div>
+                <div class="product-image">
+                    <img src="assestscirculareconomy/plasticpallet.jfif" alt="Plastic Pellets">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Industrial Materials</div>
+                    <h3 class="product-title">Recycled Plastic Pellets</h3>
+                    <p class="product-description">High-quality post-industrial HDPE pellets ready for manufacturing. 500kg available.</p>
+                    <div class="product-footer">
+                        <div class="product-price">$0.85/kg</div>
+                        <div class="product-actions">
+                            <div class="action-btn"><i class="far fa-heart"></i></div>
+                            <div class="action-btn"><i class="fas fa-shopping-cart"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card animate-from-bottom">
+                <div class="product-image">
+                    <img src="assestscirculareconomy/woddenpallets.jfif" alt="Wood Pallets">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Packaging</div>
+                    <h3 class="product-title">Used Wooden Pallets</h3>
+                    <p class="product-description">100+ standard 48x40 pallets in good condition. Perfect for shipping or upcycling.</p>
+                    <div class="product-footer">
+                        <div class="product-price">$5.00/unit</div>
+                        <div class="product-actions">
+                            <div class="action-btn"><i class="far fa-heart"></i></div>
+                            <div class="action-btn"><i class="fas fa-shopping-cart"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card animate-from-right">
+                <div class="product-badge">Discount</div>
+                <div class="product-image">
+                    <img src="assestscirculareconomy/fabricrolls.jfif" alt="Fabric Rolls">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Textiles</div>
+                    <h3 class="product-title">Excess Fabric Rolls</h3>
+                    <p class="product-description">Assorted cotton and polyester fabrics from clothing manufacturer. 20+ rolls available.</p>
+                    <div class="product-footer">
+                        <div class="product-price">$2.50/meter</div>
+                        <div class="product-actions">
+                            <div class="action-btn"><i class="far fa-heart"></i></div>
+                            <div class="action-btn"><i class="fas fa-shopping-cart"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card animate-from-left">
+                <div class="product-image">
+                    <img src="assestscirculareconomy/surpluselectroniccomponents.jfif" alt="Electronics Components">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">Surplus Electronic Components</h3>
+                    <p class="product-description">Various resistors, capacitors and ICs from electronics manufacturer. Bulk purchase available.</p>
+                    <div class="product-footer">
+                        <div class="product-price">Contact for Price</div>
+                        <div class="product-actions">
+                            <div class="action-btn"><i class="far fa-heart"></i></div>
+                            <div class="action-btn"><i class="fas fa-envelope"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card animate-from-top">
+                <div class="product-badge">Free</div>
+                <div class="product-image">
+                    <img src="assestscirculareconomy/woodbeams.jfif" alt="Construction Materials">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Construction</div>
+                    <h3 class="product-title">Reclaimed Wood Beams</h3>
+                    <p class="product-description">Solid oak beams from demolition project. Must take all (approx. 50 beams).</p>
+                    <div class="product-footer">
+                        <div class="product-price">Free</div>
+                        <div class="product-actions">
+                            <div class="action-btn"><i class="far fa-heart"></i></div>
+                            <div class="action-btn"><i class="fas fa-envelope"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card animate-from-right">
+                <div class="product-image">
+                    <img src="assestscirculareconomy/officefurniture.jfif" alt="Office Furniture">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Office Equipment</div>
+                    <h3 class="product-title">Used Office Furniture</h3>
+                    <p class="product-description">Desks, chairs and filing cabinets from office renovation. Good condition.</p>
+                    <div class="product-footer">
+                        <div class="product-price">50% Off Retail</div>
+                        <div class="product-actions">
+                            <div class="action-btn"><i class="far fa-heart"></i></div>
+                            <div class="action-btn"><i class="fas fa-shopping-cart"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+        <div class="section-title animate-from-bottom">
+            <h3>Why Participate in the Circular Economy?</h3>
+            <p>Discover the benefits of buying and selling through EcoLoop</p>
+        </div>
+        <div class="benefits-container">
+            <div class="benefits-image animate-from-left">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Circular Economy Benefits">
+            </div>
+            <div class="benefits-content animate-from-right">
+                <h3>Create Value from Waste Streams</h3>
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <h4>Cost Savings</h4>
+                        <p>Reduce procurement costs by up to 70% by sourcing quality materials at discounted prices.</p>
+                    </li>
+                    <li class="benefit-item">
+                        <h4>New Revenue Streams</h4>
+                        <p>Monetize your excess materials and by-products instead of paying for disposal.</p>
+                    </li>
+                    <li class="benefit-item">
+                        <h4>Sustainability Goals</h4>
+                        <p>Demonstrate your commitment to circular economy principles and reduce environmental impact.</p>
+                    </li>
+                    <li class="benefit-item">
+                        <h4>Supply Chain Resilience</h4>
+                        <p>Diversify your material sources and reduce dependence on virgin resources.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="section-title animate-from-bottom">
+            <h3>How EcoLoop Works</h3>
+            <p>Join the circular economy in just a few simple steps</p>
+        </div>
+        <div class="process-steps">
+            <!-- <div class="process-connector"></div> -->
+            
+            <div class="process-step animate-from-right">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Create Your Account</h4>
+                    <p>Register as a business or individual in just 2 minutes. Choose between buyer, seller, or both roles.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-left">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>List or Browse Materials</h4>
+                    <p>Sellers can upload available materials with photos and specifications. Buyers can search our extensive marketplace.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-right">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Connect & Negotiate</h4>
+                    <p>Use our messaging system to discuss details, request samples, or negotiate pricing directly with other members.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-left">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Complete the Transaction</h4>
+                    <p>Arrange pickup or delivery through our logistics partners or your own preferred method.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-right">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Build Your Reputation</h4>
+                    <p>Rate your transaction partners to build trust in the EcoLoop community and unlock premium features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- 
+    <section class="testimonials">
+        <div class="section-title animate-from-bottom">
+            <h3>What Our Members Say</h3>
+            <p>Join thousands of businesses already benefiting from circular economy practices</p>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-slide active">
+                <p class="testimonial-text">EcoLoop has transformed how we manage our production waste. We've generated over $120,000 in revenue from materials we used to pay to dispose of, while also reducing our carbon footprint significantly.</p>
+                <p class="testimonial-author">Michael Johnson</p>
+                <p class="testimonial-position">Operations Director, Green Manufacturing Co.</p>
+            </div>
+            <div class="testimonial-slide">
+                <p class="testimonial-text">As a small furniture maker, EcoLoop gives me access to high-quality reclaimed materials at prices I can afford. The community is fantastic and I've built lasting relationships with suppliers.</p>
+                <p class="testimonial-author">Sarah Williams</p>
+                <p class="testimonial-position">Owner, Reclaimed Designs</p>
+            </div>
+            <div class="testimonial-slide">
+                <p class="testimonial-text">Our sustainability team loves the detailed reporting EcoLoop provides. It's helped us achieve our zero-waste certification and tell a compelling story to our customers about our circular practices.</p>
+                <p class="testimonial-author">David Chen</p>
+                <p class="testimonial-position">Sustainability Manager, EcoRetail Inc.</p>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section class="cta-section">
+        <div class="cta-content animate-scale">
+            <h3>Ready to Join the Circular Economy?</h3>
+            <p>Whether you have materials to sell or need affordable resources, EcoLoop connects you to sustainable solutions.</p>
+            <div class="cta-buttons">
+                 <a href="#" class="cta-button">Sign Up as Seller</a>
+                 <a href="#" class="secondary-button">Browse as Buyer</a> -->
+            <!-- </div>
+        </div>
+    </section> --> 
+
+    <!-- Footer -->
+      
+        <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/Autonic-white.png" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>
+     At Autonic, we are dedicated to delivering reliable, intelligent, and eco-conscious waste management solutions designed to meet the specific needs of residential, commercial, and industrial sectors. By integrating cutting-edge automation with sustainable practices, we aim to minimize environmental impact, enhance operational efficiency, and drive a cleaner, smarter future for communities and the planet.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                              <li>
+                    <a href="smartwastesorting.html" >Smart Sorting</a>
+                </li>
+                <li>
+                    <a href="routeoptimization.html" >Route Optimization for- Waste
+                        Collection</a>
+                </li>
+                <li>
+                    <a href="contaminationdetection.html" >Contamination Detection in-
+                        Recycling</a>
+                </li>
+                <li>
+                    <a href="wastetrackinganalytics.html" >Waste Tracking &
+                        Analytics</a>
+                </li>
+                <li>
+                    <a href="circulareconomy.html" >Circular Economy Marketplace</a>
+                </li>
+                <li>
+                    <a href="faq.html" >FAQ</a>
+                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- footer end -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/custom-swiper-1.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script>
+        // Testimonial slider functionality
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                showSlide(index);
+                startSlider();
+            });
+        });
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+
+        // Category buttons functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll animation trigger
+        function checkScroll() {
+            const elements = document.querySelectorAll('.animate-from-left, .animate-from-right, .animate-from-bottom, .animate-from-top, .animate-scale, .animate-rotate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Initialize animations on load
+        window.addEventListener('load', function() {
+            checkScroll();
+            
+            // Animate hero elements sequentially
+            const heroContent = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image');
+            
+            setTimeout(() => {
+                heroContent.classList.add('animated');
+            }, 300);
+            
+            setTimeout(() => {
+                heroImage.classList.add('animated');
+            }, 600);
+            
+            // Start testimonial slider
+            startSlider();
+        });
+
+        // Check scroll position on scroll
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>

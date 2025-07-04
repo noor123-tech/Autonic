@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Autonic — AI-Driven Waste Management Technology</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Autonic's AI-powered waste management technology revolutionizes recycling and disposal with smart sensors, machine learning, and automation" name="description">
+    <meta content="AI waste management, smart recycling technology, waste tech solutions, sustainable disposal systems" name="keywords">
+    <meta content="Autonic" name="author">
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Tech Page Custom Styles */
+        .tech-hero {
+            background: linear-gradient(135deg, #1a2e35 0%, #2E7D32 100%);
+            color: white;
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.03)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            z-index: 1;
+        }
+        
+        .tech-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tech-hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: rgb(255, 255, 255);
+        }
+        
+        .tech-hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .ai-chip {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin: 0 10px 15px 0;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .ai-chip:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .tech-feature-section {
+            padding: 120px 0;
+            background: #f8f9fa;
+            color: black;
+        }
+        
+        .tech-feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tech-feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tech-feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(46, 125, 50, 0.15);
+        }
+        
+        .tech-feature-card:hover::before {
+            opacity: 0.03;
+        }
+        
+        .tech-feature-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tech-feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .tech-feature-card:hover .tech-feature-img img {
+            transform: scale(1.1);
+        }
+        
+        .tech-feature-content {
+            padding: 30px;
+        }
+        
+        .tech-feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #E8F5E9;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .tech-feature-icon i {
+            font-size: 28px;
+            color: #2E7D32;
+        }
+        
+        .tech-demo-section {
+            background: linear-gradient(135deg, #1a2e35 0%, #2E7D32 100%);
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-demo-container {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        .tech-demo-container h2{
+            color: white;
+        }
+        
+        .tech-demo-mockup {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .tech-demo-mockup:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(-2deg);
+        }
+        
+        .tech-demo-mockup::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(46,125,50,0.3) 0%, rgba(27,94,32,0.3) 100%);
+            z-index: 1;
+        }
+        
+        .tech-demo-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .tech-process-section {
+            padding: 120px 0;
+            background: white;
+        }
+        .tech-process-section p{
+            color: black;
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 100px;
+            margin-bottom: 60px;
+        }
+        
+        .process-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 70px;
+            height: 70px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .process-line {
+            position: absolute;
+            left: 35px;
+            top: 70px;
+            bottom: -60px;
+            width: 2px;
+            background: #2E7D32;
+            opacity: 0.2;
+        }
+        
+        .process-step:last-child .process-line {
+            display: none;
+        }
+        
+        .tech-stats-section {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+        
+        .tech-stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .tech-stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2E7D32;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .tech-stat-label {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .tech-integration-section {
+            padding: 120px 0;
+            background: white;
+        }
+        
+        .integration-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .integration-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .tech-cta-section {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .tech-cta-title {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .tech-hero-title {
+                font-size: 3rem;
+            }
+            
+            .tech-hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .process-step {
+                padding-left: 70px;
+            }
+            
+            .process-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .process-line {
+                left: 25px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+          <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent">
+            <div id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-between xs-hide">
+                                <div class="d-flex">
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-clock-time"></i>Monday
+                                            - Friday 08.00 - 18.00</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i
+                                                class="icofont-envelope"></i>contact@Autonic .com</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-phone"></i>+1 609
+                                            535-2692</a></div>
+                                </div>
+
+                               <div class="login-signup" style="display:grid ; align-items: center;" >
+                                    <div style="display: flex;">
+                                   <a href="quote.html"  style="border: none;padding:0px 5px;">Request a Quote</a>
+        <a href="https://infinicrm.com/admin/authentication" style="border: none; padding: 0px 5px;">Login</a>
+        <a href="signup.html" style="padding: 0px 5px;" >Sign Up</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- side navbar starts from here -->
+            <div class="side-nav" id="sideNav">
+                <div class="side-nav-links">
+                    <a href="index.html" style="color: white;">Home</a>
+                    <a href="about.html" style="color: white;">About</a>
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+                            <a href="services.html" style="color: white;">Services</a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div>
+                    </div>
+                    <!-- second oen -->
+
+                    <!-- Toggling Services Dropdown in Side Nav -->
+                   <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="complete_products_section.html" style="color: white;">Products</a>
+                            <!-- <span class="dropdown-toggle" style="color: white;"></span> -->
+                        </div>
+                        <!-- <div class="side-dropdown-menu">
+                            <a href="#" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div> -->
+                    </div>
+                    <a href="industries.html" style="color: white;">Industries</a>
+
+                    <!-- third one starts from here -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="technology.html" style="color: white;">Technology </a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="software.html" style="color: black;">Software</a>
+                            <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                            <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                        </div>
+                    </div>
+
+                    <a href="SustainabilityRecycling.html" style="color: white;">Sustainability & Recycling</a>
+                    <a href="contact.html" style="color: white;">Contact</a>
+                    <a href="carrers.html" style="color: white;">Careers</a>
+                    <a href="quote.html" style="border: none;">Request a Quote</a>
+                    <a href="https://infinicrm.com/admin/authentication" style="border: none;">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+            <!-- side navbar ends from here  -->
+            <div id="hamburger-container">
+                <div class="hamburger" id="hamburger">
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                </div>
+            </div>
+            <!-- hamburger ending -->
+            <!-- this where the navbar is starting from  -->
+            <div id="navbar">
+                <div class="navbar-container">
+                    <!-- Hamburger -->
+
+                    <!-- hamburger ends here -->
+                    <!-- Logo -->
+                    <div class="navbar-logo">
+                        <a href="index.html" class="nav-logo">
+                         <img class="logo-main" src="images/Autonic-white.png" alt="">
+                            <img class="logo-mobile" src="images/logo-white.webp" alt=""> </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="navbar-menu">
+                        <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                        <a href="about.html" class="nav-link" style="color: white;">About</a>
+
+                        <div class="nav-dropdown">
+                            <a href="services.html" class="nav-link" style="color: white;">Services ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                                <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                    Collection</a>
+                                <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                    Recycling</a>
+                                <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking &
+                                    Analytics</a>
+                                <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                                <a href="faq.html" style="color: black;">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-dropdown">
+                            <a href="complete_products_section.html" class="nav-link" style="color: white;">Products</a>
+
+                        </div> <a href="industries.html" class="nav-link" style="color: white;">Industries</a>
+                        <div class="nav-dropdown">
+                            <a href="technology.html" class="nav-link" style="color: white;">Technology ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="software.html" style="color: black;">Software</a>
+                                <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                                <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                            </div>
+                        </div> <a href="SustainabilityRecycling.html" class="nav-link"
+                            style="color: white;">Sustainability & Recycling</a>
+                        <a href="contact.html" class="nav-link" style="color: white;">Contact</a>
+                        <a href="carrers.html" class="nav-link" style="color: white;">Careers</a>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="navbar-buttons">
+                        <!-- <a href="quote.html" class="nav-button light" style="border: none;">Request a Quote</a>
+                        <a href="https://infinicrm.com/admin/authentication" class="nav-button"
+                            style="border: none;">Login</a>
+                        <a href="signup.html" class="nav-button">Sign Up</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- this is where the navbar is ending -->
+        </header>
+        <!-- Technology Hero Section -->
+        <section class="tech-hero text-center">
+            <div class="container tech-hero-content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h1 class="tech-hero-title wow fadeInDown">AI-Powered Waste Revolution</h1>
+                        <p class="tech-hero-subtitle wow fadeInUp" data-wow-delay="0.2s">Transforming waste management through artificial intelligence, machine learning, and smart automation</p>
+                        <div class="mt-4 wow fadeInUp" data-wow-delay="0.4s">
+                            <span class="ai-chip">Computer Vision</span>
+                            <span class="ai-chip">Predictive Analytics</span>
+                            <span class="ai-chip">IoT Sensors</span>
+                            <span class="ai-chip">Route Optimization</span>
+                            <span class="ai-chip">Robotic Sorting</span>
+                        </div>
+                        <!-- <a href="#demo" class="btn-main btn-light mt-4 wow fadeInUp" data-wow-delay="0.6s">See It In Action</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Features Section -->
+        <section class="tech-feature-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-60">
+                        <h2 class="wow fadeInUp">Our Smart Technology Ecosystem</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">Integrated solutions that work together to create the most advanced waste management system</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-img">
+                                <img src="assests/visionsort.jpeg" alt="AI Vision Sorting">
+                            </div>
+                            <div class="tech-feature-content">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>VisionSort AI</h3>
+                                <p>Our proprietary computer vision system identifies and classifies materials at speeds up to 300 items per minute with 98% accuracy, revolutionizing recycling purity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-img">
+                                <img src="assests/smartbinnetwork.jpeg" alt="Smart Bin Network">
+                            </div>
+                            <div class="tech-feature-content">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                                <h3>SmartBin Network</h3>
+                                <p>IoT-enabled bins with fill-level sensors, weight measurement, and material detection that communicate in real-time with our central AI platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-img">
+                                <img src="assests/routeaioptimization.jpeg" alt="Route Optimization AI">
+                            </div>
+                            <div class="tech-feature-content">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-route"></i>
+                                </div>
+                                <h3>RouteAI Optimization</h3>
+                                <p>Dynamic routing algorithms that adapt to traffic, weather, and real-time bin data to minimize emissions and maximize collection efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-img">
+                                <img src="assests/autosortrobotics.jpeg" alt="Robotic Sorting Arm">
+                            </div>
+                            <div class="tech-feature-content">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h3>AutoSort Robotics</h3>
+                                <p>High-speed robotic arms that sort materials with precision and consistency, operating 24/7 to process waste streams efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-img">
+                                <img src="assests/wastepredictai.jpeg" alt="Predictive Analytics">
+                            </div>
+                            <div class="tech-feature-content">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>WastePredict AI</h3>
+                                <p>Machine learning models that forecast waste generation patterns weeks in advance, enabling proactive resource planning.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-img">
+                                <img src="assests/ecocommandcenter.jpeg" alt="AI Dashboard">
+                            </div>
+                            <div class="tech-feature-content">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <h3>EcoCommand Center</h3>
+                                <p>Real-time monitoring dashboard that provides actionable insights and automated recommendations for optimal waste management.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Demo Section -->
+        <section class="tech-demo-section" id="demo">
+            <div class="container tech-demo-container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 wow fadeInLeft">
+                        <h2 class="mb-4">See Our AI in Action</h2>
+                        <p class="mb-4">Witness how our technology transforms chaotic waste streams into organized, recyclable materials with unprecedented efficiency.</p>
+                        <ul class="mb-4">
+                            <li class="mb-3">Real-time material identification and classification</li>
+                            <li class="mb-3">Automated quality control and contamination detection</li>
+                            <li class="mb-3">Continuous learning system that improves over time</li>
+                            <li class="mb-3">Seamless integration with existing waste infrastructure</li>
+                        </ul>
+                        <!-- <a href="#" class="btn-main btn-light">Request Live Demo</a> -->
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight">
+                        <div class="tech-demo-mockup floating">
+                            <img src="assests/AIwastemanagement.jpeg" alt="AI Technology Demo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Process Section -->
+        <section class="tech-process-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-60">
+                        <h2 class="wow fadeInUp">How Our AI Technology Works</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">A seamless integration of hardware and software that creates intelligent waste management</p>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="process-step wow fadeInUp">
+                            <div class="process-number">1</div>
+                            <div class="process-line"></div>
+                            <h3>Smart Detection</h3>
+                            <p>Our network of IoT sensors and cameras captures detailed data about waste composition, volume, and location in real-time, creating a digital twin of your waste stream.</p>
+                        </div>
+                        
+                        <div class="process-step wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="process-number">2</div>
+                            <div class="process-line"></div>
+                            <h3>AI Processing</h3>
+                            <p>Machine learning algorithms analyze the data to identify materials, predict fill levels, detect contamination, and optimize collection routes—all in milliseconds.</p>
+                        </div>
+                        
+                        <div class="process-step wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="process-number">3</div>
+                            <div class="process-line"></div>
+                            <h3>Automated Execution</h3>
+                            <p>Robotic systems and smart vehicles execute the optimized plan with precision, while human operators monitor and adjust through our intuitive dashboard.</p>
+                        </div>
+                        
+                        <div class="process-step wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="process-number">4</div>
+                            <div class="process-line"></div>
+                            <h3>Continuous Learning</h3>
+                            <p>The system improves its performance over time by analyzing outcomes and adapting to new patterns, becoming more efficient with each cycle.</p>
+                        </div>
+                        
+                        <div class="process-step wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="process-number">5</div>
+                            <div class="process-line"></div>
+                            <h3>Sustainability Reporting</h3>
+                            <p>Comprehensive analytics track your environmental impact, recycling rates, and carbon footprint reduction—all automatically generated for compliance and reporting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stats Section -->
+        <section class="tech-stats-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-60">
+                        <h2 class="wow fadeInUp">Measurable Results</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">The impact of our technology speaks for itself</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp">
+                        <div class="tech-stat-card">
+                            <div class="tech-stat-number">98%</div>
+                            <div class="tech-stat-label">Sorting Accuracy</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="tech-stat-card">
+                            <div class="tech-stat-number">45%</div>
+                            <div class="tech-stat-label">Increase in Recycling Rates</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="tech-stat-card">
+                            <div class="tech-stat-number">30%</div>
+                            <div class="tech-stat-label">Reduction in Collection Costs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="tech-stat-card">
+                            <div class="tech-stat-number">2.5M</div>
+                            <div class="tech-stat-label">Tons Diverted from Landfills</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Integration Section -->
+        <section class="tech-integration-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-60">
+                        <h2 class="wow fadeInUp">Seamless Integration</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">Our technology works with your existing infrastructure and partners</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-2 col-md-4 col-6 wow fadeInUp">
+                        <div class="integration-logo">
+                            <img src="assests/seamlessintegration1.jpeg" alt="Partner Logo" class="img-fluid">
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="integration-logo">
+                            <img src="assests/seamlessintegration2.jpeg" alt="Partner Logo" class="img-fluid">
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="integration-logo">
+                            <img src="assests/seamlessintegration3.jpeg" alt="Partner Logo" class="img-fluid">
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="integration-logo">
+                            <img src="assests/seamlessintegration4.jpeg" alt="Partner Logo" class="img-fluid">
+                        </div>
+                    </div>
+               
+                     <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="integration-logo">
+                            <img src="assests/seamlessintegration5.jpeg" alt="Partner Logo" class="img-fluid">
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="integration-logo">
+                            <img src="assests/seamlessintergation6.jpeg" alt="Partner Logo" class="img-fluid">
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology CTA Section -->
+        <section class="tech-cta-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 wow fadeInUp">
+                        <h2 class="tech-cta-title">Ready to Transform Your Waste Management?</h2>
+                        <p class="mb-5">Join the revolution of AI-powered sustainability and efficiency.</p>
+                        <a href="quote.html" class="btn-main btn-light me-3">Get a Quote</a>
+                        <a href="contact.html" class="btn-main btn-outline-light">Contact Our Team</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (same as your existing footer) -->
+     
+     
+        <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/Autonic-white.png" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>
+     At Autonic, we are dedicated to delivering reliable, intelligent, and eco-conscious waste management solutions designed to meet the specific needs of residential, commercial, and industrial sectors. By integrating cutting-edge automation with sustainable practices, we aim to minimize environmental impact, enhance operational efficiency, and drive a cleaner, smarter future for communities and the planet.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                              <li>
+                    <a href="smartwastesorting.html" >Smart Sorting</a>
+                </li>
+                <li>
+                    <a href="routeoptimization.html" >Route Optimization for- Waste
+                        Collection</a>
+                </li>
+                <li>
+                    <a href="contaminationdetection.html" >Contamination Detection in-
+                        Recycling</a>
+                </li>
+                <li>
+                    <a href="wastetrackinganalytics.html" >Waste Tracking &
+                        Analytics</a>
+                </li>
+                <li>
+                    <a href="circulareconomy.html" >Circular Economy Marketplace</a>
+                </li>
+                <li>
+                    <a href="faq.html" >FAQ</a>
+                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- footer end -->
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/custom-swiper-1.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Additional animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate tech chips on hover
+            const chips = document.querySelectorAll('.ai-chip');
+            chips.forEach(chip => {
+                chip.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+                });
+                chip.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // Parallax effect for demo mockup
+            window.addEventListener('scroll', function() {
+                const mockup = document.querySelector('.tech-demo-mockup');
+                if (mockup) {
+                    const scrollPosition = window.pageYOffset;
+                    mockup.style.transform = `translateY(${scrollPosition * 0.1}px) rotateX(${scrollPosition * 0.01}deg) rotateY(${scrollPosition * 0.01}deg)`;
+                }
+            });
+        });
+         
+    const hamburger = document.getElementById('hamburger');
+    const sideNav = document.getElementById('sideNav');
+
+    hamburger.addEventListener('click', () => {
+      sideNav.classList.toggle('open');
+    });
+
+    // Optional: Click outside to close
+    window.addEventListener('click', (e) => {
+      if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+        sideNav.classList.remove('open');
+      }
+    });
+    const carets = document.querySelectorAll('.dropdown-toggle');
+
+carets.forEach(caret => {
+  caret.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click bubbling
+    const sideDropdown = caret.closest('.side-dropdown');
+    sideDropdown.classList.toggle('open');
+  });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Autonic  — Waste Management and Recycling Website Template</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="Autonic  — Waste Management and Recycling Website Template" name="description" >
+    <meta content="" name="keywords" >
+    <meta content="" name="author" >
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
+    <link href="css/swiper.css" rel="stylesheet" type="text/css" >
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
+
+    <style>
+    :root {
+            --green: #2e7d32;
+            --light-green: #81c784;
+            --dark-green: #1b5e20;
+            --white: #ffffff;
+            --black: #333333;
+            --gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            color: var(--black);
+            line-height: 1.6;
+            background-color: var(--gray);
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMATION CLASSES ===== */
+        .animate-from-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-bottom {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-top {
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        .animate-rotate {
+            opacity: 0;
+            transform: rotate(5deg);
+            transition: all 0.8s ease;
+        }
+
+        .animated {
+            opacity: 1;
+            transform: translateX(0) translateY(0) scale(1) rotate(0);
+        }
+
+     
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            margin-right: 12px;
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover img {
+            transform: rotate(15deg);
+        }
+
+        .logo h1 {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.6rem;
+            background: linear-gradient(to right, var(--green), var(--light-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--green), var(--dark-green));
+            color: var(--white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.4s;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(1px);
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--light-green), var(--green));
+            color: var(--white);
+            padding: 10rem 5% 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f5f5f5" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f5f5f5" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f5f5f5"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            margin-top: 3rem;
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateX(10deg);
+            transition: transform 0.5s;
+        }
+
+        .hero-image:hover {
+            transform: perspective(1000px) rotateX(0);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: 6rem 5%;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h3 {
+            font-size: 2.3rem;
+            color: var(--green);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h3:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--light-green);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--black);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(129, 199, 132, 0.1), rgba(46, 125, 50, 0.05));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover:before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(129, 199, 132, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            color: var(--green);
+            margin-bottom: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: var(--dark-green);
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* ===== HOW IT WORKS SECTION ===== */
+        .process {
+            padding: 6rem 5%;
+            background-color: var(--gray);
+            position: relative;
+        }
+
+        .process-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-step {
+            display: flex;
+            margin-bottom: 3rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-green), var(--green));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            flex-grow: 1;
+            position: relative;
+            border-left: 4px solid var(--light-green);
+        }
+
+        .step-content h4 {
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            color: #555;
+        }
+
+        .process-connector {
+            position: absolute;
+            left: 30px;
+            top: 60px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--light-green), var(--green));
+            z-index: 1;
+        }
+
+        /* ===== TECHNOLOGY SECTION ===== */
+        .technology {
+            padding: 6rem 5%;
+            background-color: var(--white);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.4s;
+            background-color: var(--white);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--light-green), var(--green));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s;
+        }
+
+        .tech-item:hover .tech-icon {
+            transform: rotate(15deg) scale(1.1);
+            border-radius: 25px;
+        }
+
+        .tech-icon i {
+            font-size: 2.8rem;
+            color: var(--white);
+        }
+
+        .tech-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-green);
+        }
+
+        .tech-item p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            padding: 6rem 5%;
+            background-color: var(--gray);
+        }
+
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: none;
+            position: relative;
+            border: 1px solid rgba(129, 199, 132, 0.3);
+        }
+
+        .testimonial-slide:before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--light-green);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--green);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-position {
+            font-size: 0.95rem;
+            color: #777;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 7px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: var(--green);
+            transform: scale(1.2);
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--dark-green), var(--green));
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+        }
+
+        .stat-number:after {
+            content: '+';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            font-size: 2rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 6rem 5%;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(129, 199, 132, 0.1), rgba(46, 125, 50, 0.05));
+            padding: 4rem;
+            border-radius: 15px;
+            border: 1px solid rgba(129, 199, 132, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(129, 199, 132, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: 0;
+        }
+
+        .cta-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-green);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content p {
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-form input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .cta-form input:focus {
+            border-color: var(--light-green);
+            box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.3);
+        }
+
+        .cta-form button {
+            background: linear-gradient(135deg, var(--green), var(--dark-green));
+            color: var(--white);
+            border: none;
+            padding: 0 2rem;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .cta-form button:hover {
+            background: linear-gradient(135deg, var(--dark-green), var(--green));
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h4 {
+            color: var(--light-green);
+            margin-bottom: 1.8rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--light-green);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-column a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: radial-gradient(var(--light-green) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .step-number {
+                margin-bottom: 1.5rem;
+                margin-right: 0;
+            }
+            
+            .process-connector {
+                left: 30px;
+                top: 60px;
+                bottom: 0;
+                height: calc(100% - 60px);
+                width: 2px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 1rem;
+            }
+
+            .hero {
+                padding-top: 8rem;
+                padding-bottom: 4rem;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .section-title h3 {
+                font-size: 2rem;
+            }
+
+            .cta-form {
+                flex-direction: column;
+            }
+
+            .cta-form input {
+                border-radius: 30px;
+                margin-bottom: 0.8rem;
+            }
+
+            .cta-form button {
+                border-radius: 30px;
+                padding: 0.9rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .feature-card {
+                padding: 1.8rem;
+            }
+
+            .testimonial-slide {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+           <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent">
+            <div id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-between xs-hide">
+                                <div class="d-flex">
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-clock-time"></i>Monday
+                                            - Friday 08.00 - 18.00</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i
+                                                class="icofont-envelope"></i>contact@Autonic .com</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-phone"></i>+1 609
+                                            535-2692</a></div>
+                                </div>
+
+                               <div class="login-signup" style="display:grid ; align-items: center;" >
+                                    <div style="display: flex;">
+                                   <a href="quote.html"  style="border: none;padding:0px 5px;">Request a Quote</a>
+        <a href="https://infinicrm.com/admin/authentication" style="border: none; padding: 0px 5px;">Login</a>
+        <a href="signup.html" style="padding: 0px 5px;" >Sign Up</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- side navbar starts from here -->
+            <div class="side-nav" id="sideNav">
+                <div class="side-nav-links">
+                    <a href="index.html" style="color: white;">Home</a>
+                    <a href="about.html" style="color: white;">About</a>
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+                            <a href="services.html" style="color: white;">Services</a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div>
+                    </div>
+                    <!-- second oen -->
+
+                    <!-- Toggling Services Dropdown in Side Nav -->
+               <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="complete_products_section.html" style="color: white;">Products</a>
+                            <!-- <span class="dropdown-toggle" style="color: white;"></span> -->
+                        </div>
+                        <!-- <div class="side-dropdown-menu">
+                            <a href="#" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div> -->
+                    </div>
+                    <a href="industries.html" style="color: white;">Industries</a>
+
+                    <!-- third one starts from here -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="technology.html" style="color: white;">Technology </a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="software.html" style="color: black;">Software</a>
+                            <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                            <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                        </div>
+                    </div>
+
+                    <a href="SustainabilityRecycling.html" style="color: white;">Sustainability & Recycling</a>
+                    <a href="contact.html" style="color: white;">Contact</a>
+                    <a href="carrers.html" style="color: white;">Careers</a>
+                    <a href="quote.html" style="border: none;">Request a Quote</a>
+                    <a href="https://infinicrm.com/admin/authentication" style="border: none;">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+            <!-- side navbar ends from here  -->
+            <div id="hamburger-container">
+                <div class="hamburger" id="hamburger">
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                </div>
+            </div>
+            <!-- hamburger ending -->
+            <!-- this where the navbar is starting from  -->
+            <div id="navbar">
+                <div class="navbar-container">
+                    <!-- Hamburger -->
+
+                    <!-- hamburger ends here -->
+                    <!-- Logo -->
+                    <div class="navbar-logo">
+                        <a href="index.html" class="nav-logo">
+                            <img class="logo-main" src="images/Autonic-white.png" alt="">
+                            <img class="logo-mobile" src="images/logo-white.webp" alt=""> </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="navbar-menu">
+                        <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                        <a href="about.html" class="nav-link" style="color: white;">About</a>
+
+                        <div class="nav-dropdown">
+                            <a href="services.html" class="nav-link" style="color: white;">Services ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                                <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                    Collection</a>
+                                <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                    Recycling</a>
+                                <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking &
+                                    Analytics</a>
+                                <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                                <a href="faq.html" style="color: black;">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-dropdown">
+                            <a href="complete_products_section.html" class="nav-link" style="color: white;">Products</a>
+
+                        </div> <a href="industries.html" class="nav-link" style="color: white;">Industries</a>
+                        <div class="nav-dropdown">
+                            <a href="technology.html" class="nav-link" style="color: white;">Technology ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="software.html" style="color: black;">Software</a>
+                                <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                                <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                            </div>
+                        </div> <a href="SustainabilityRecycling.html" class="nav-link"
+                            style="color: white;">Sustainability & Recycling</a>
+                        <a href="contact.html" class="nav-link" style="color: white;">Contact</a>
+                        <a href="carrers.html" class="nav-link" style="color: white;">Careers</a>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="navbar-buttons">
+                        <!-- <a href="quote.html" class="nav-button light" style="border: none;">Request a Quote</a>
+                        <a href="https://infinicrm.com/admin/authentication" class="nav-button"
+                            style="border: none;">Login</a>
+                        <a href="signup.html" class="nav-button">Sign Up</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- this is where the navbar is ending -->
+        </header>
+ 
+    <section class="hero">
+        
+        <div class="hero-content animate-from-bottom" style="margin-bottom: 20px;">
+            <h2>Advanced Contamination Detection for Cleaner Recycling</h2>
+            <p>Our AI-powered system identifies and removes contaminants from recycling streams with 95% accuracy, reducing processing costs and improving sustainability.</p>
+            <div class="hero-buttons">
+                <!-- <a href="#" class="cta-button">Request Demo</a>
+                <a href="#" class="secondary-button">Learn More</a> -->
+            </div>
+        </div>
+        <!-- <div class="hero-image animate-from-top">
+            <img src="assests/Eco.jfif" alt="Recycling Facility">
+        </div> -->
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-title animate-from-bottom">
+            <h3>Transform Your Recycling Process</h3>
+            <p>Our contamination detection system delivers measurable improvements in recycling quality and operational efficiency</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate-from-left">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h4>AI-Powered Detection</h4>
+                <p>Machine learning algorithms identify contaminants with industry-leading accuracy, reducing human error in sorting.</p>
+            </div>
+            <div class="feature-card animate-from-bottom">
+                <div class="feature-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h4>Real-Time Monitoring</h4>
+                <p>High-speed cameras scan materials at 200+ frames per second, detecting contaminants as small as 1cm².</p>
+            </div>
+            <div class="feature-card animate-from-right">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h4>Data Analytics</h4>
+                <p>Track contamination trends, identify problem materials, and optimize your recycling process with actionable insights.</p>
+            </div>
+            <div class="feature-card animate-from-left">
+                <div class="feature-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h4>Cost Reduction</h4>
+                <p>Reduce processing costs by up to 30% by minimizing rejected loads and improving sorting efficiency.</p>
+            </div>
+            <div class="feature-card animate-from-top">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h4>Sustainability</h4>
+                <p>Increase recycling purity rates by 40-60%, reducing landfill waste and improving environmental impact.</p>
+            </div>
+            <div class="feature-card animate-from-right">
+                <div class="feature-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h4>Automated Alerts</h4>
+                <p>Instant notifications when contamination levels exceed thresholds, allowing for immediate corrective action.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="section-title animate-from-bottom">
+            <h3>How Our Contamination Detection Works</h3>
+            <p>A seamless integration with your existing recycling workflow</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-connector"></div>
+            
+            <div class="process-step animate-from-right">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Material Scanning</h4>
+                    <p>High-resolution cameras and sensors scan materials as they move along the conveyor belt, capturing detailed images from multiple angles.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-left">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>AI Classification</h4>
+                    <p>Our deep learning algorithms analyze the scanned images in real-time, identifying and classifying materials with 95%+ accuracy.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-right">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Contaminant Removal</h4>
+                    <p>Automated sorting arms or targeted air jets remove identified contaminants from the recycling stream within milliseconds.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-left">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Data Logging</h4>
+                    <p>All detection events are logged with timestamps and images, creating a comprehensive database for quality control and reporting.</p>
+                </div>
+            </div>
+            
+            <div class="process-step animate-from-right">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Operator Feedback</h4>
+                    <p>Facility staff receive real-time alerts and detailed reports to monitor system performance and contamination trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technology" id="technology">
+        <div class="section-title animate-from-bottom">
+            <h3>Advanced Detection Technology</h3>
+            <p>Combining cutting-edge technologies for unparalleled accuracy</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-item animate-from-left">
+                <div class="tech-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h4>Computer Vision</h4>
+                <p>High-speed imaging with spectral analysis for material identification</p>
+            </div>
+            <div class="tech-item animate-from-bottom">
+                <div class="tech-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h4>Deep Learning</h4>
+                <p>Neural networks trained on millions of waste samples for precise classification</p>
+            </div>
+            <div class="tech-item animate-from-top">
+                <div class="tech-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h4>IoT Sensors</h4>
+                <p>Multi-spectral sensors detect material composition beyond visible spectrum</p>
+            </div>
+            <div class="tech-item animate-from-right">
+                <div class="tech-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h4>Cloud Analytics</h4>
+                <p>Centralized data processing with continuous algorithm improvement</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item animate-from-left">
+                <div class="stat-number">95</div>
+                <div class="stat-label">Detection Accuracy</div>
+            </div>
+            <div class="stat-item animate-from-bottom">
+                <div class="stat-number">30</div>
+                <div class="stat-label">Cost Reduction</div>
+            </div>
+            <div class="stat-item animate-from-top">
+                <div class="stat-number">200</div>
+                <div class="stat-label">Items Processed/Min</div>
+            </div>
+            <div class="stat-item animate-from-right">
+                <div class="stat-number">40</div>
+                <div class="stat-label">Purity Increase</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-title animate-from-bottom">
+            <h3>Trusted by Recycling Leaders</h3>
+            <p>What our clients say about our contamination detection system</p>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-slide active">
+                <p class="testimonial-text">Implementing EcoDetect reduced our contamination rate from 18% to just 4% within six months. The system pays for itself through reduced processing fees and increased material recovery.</p>
+                <p class="testimonial-author">Michael Johnson</p>
+                <p class="testimonial-position">Operations Director, GreenCycle Facilities</p>
+            </div>
+            <div class="testimonial-slide">
+                <p class="testimonial-text">The real-time alerts have transformed how we manage quality control. We can now identify contamination sources immediately and adjust our collection practices accordingly.</p>
+                <p class="testimonial-author">Sarah Williams</p>
+                <p class="testimonial-position">Sustainability Manager, Metro Waste Services</p>
+            </div>
+            <div class="testimonial-slide">
+                <p class="testimonial-text">After installing EcoDetect, we've seen a 35% reduction in rejected loads from our MRF. The detailed reporting helps us demonstrate compliance with recycling regulations.</p>
+                <p class="testimonial-author">David Chen</p>
+                <p class="testimonial-position">CEO, EcoProcess Solutions</p>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content animate-scale">
+            <h3>Ready to Improve Your Recycling Quality?</h3>
+            <p>Join leading waste management companies in reducing contamination and increasing recycling efficiency with our AI-powered detection system.</p>
+            <form class="cta-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Request Demo</button>
+            </form>
+        </div>
+    </section>
+
+<!-- footer starts from here -->
+     <!-- Footer -->
+      
+        <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/Autonic-white.png" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>
+     At Autonic, we are dedicated to delivering reliable, intelligent, and eco-conscious waste management solutions designed to meet the specific needs of residential, commercial, and industrial sectors. By integrating cutting-edge automation with sustainable practices, we aim to minimize environmental impact, enhance operational efficiency, and drive a cleaner, smarter future for communities and the planet.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                              <li>
+                    <a href="smartwastesorting.html" >Smart Sorting</a>
+                </li>
+                <li>
+                    <a href="routeoptimization.html" >Route Optimization for- Waste
+                        Collection</a>
+                </li>
+                <li>
+                    <a href="contaminationdetection.html" >Contamination Detection in-
+                        Recycling</a>
+                </li>
+                <li>
+                    <a href="wastetrackinganalytics.html" >Waste Tracking &
+                        Analytics</a>
+                </li>
+                <li>
+                    <a href="circulareconomy.html" >Circular Economy Marketplace</a>
+                </li>
+                <li>
+                    <a href="faq.html" >FAQ</a>
+                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- footer end -->
+ <!-- footer ends here -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/custom-swiper-1.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script>
+        // Testimonial slider functionality
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                showSlide(index);
+                startSlider();
+            });
+        });
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll animation trigger
+        function checkScroll() {
+            const elements = document.querySelectorAll('.animate-from-left, .animate-from-right, .animate-from-bottom, .animate-from-top, .animate-scale, .animate-rotate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Initialize animations on load
+        window.addEventListener('load', function() {
+            checkScroll();
+            
+            // Animate hero elements sequentially
+            const heroContent = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image');
+            
+            setTimeout(() => {
+                heroContent.classList.add('animated');
+            }, 300);
+            
+            setTimeout(() => {
+                heroImage.classList.add('animated');
+            }, 600);
+            
+            // Start testimonial slider
+            startSlider();
+        });
+
+        // Check scroll position on scroll
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>

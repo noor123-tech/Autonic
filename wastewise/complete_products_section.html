@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Autonic — Waste Management and Recycling Website Template</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Autonic  — Waste Management and Recycling Website Template" name="description">
+    <meta content="" name="keywords">
+    <meta content="" name="author">
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f8f0;
+            /* Changed to light greenish background */
+        }
+
+        /* Rest of your existing CSS remains the same */
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            margin-top: 10%;
+        }
+
+        .products-container h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2E7D32;
+        }
+
+       .products-container h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2E7D32;
+            /* Dark green */
+        }
+
+        .products-container p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .product-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            border: 2px solid #2E7D32;
+            /* Dark green */
+            color: #2E7D32;
+            /* Dark green */
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #2E7D32;
+            /* Dark green */
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            /* Dark green with opacity */
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block;
+            border-top: 4px solid #4CAF50;
+            /* Green accent */
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card.hidden {
+            display: none;
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2E7D32;
+            /* Dark green */
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            text-align: left;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .view-details {
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            /* Green to dark green gradient */
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: none;
+        }
+
+        .view-details:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+            /* Green with opacity */
+            background: linear-gradient(45deg, #2E7D32, #1B5E20);
+            /* Darker green gradient on hover */
+        }
+
+        /* Modal Styles */
+        .product-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border-top: 5px solid #4CAF50;
+            /* Green accent */
+        }
+
+        .modal-header {
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            /* Green to dark green gradient */
+            color: #fff;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: #fff;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.2);
+            color: #e0e0e0;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            line-height: 1.8;
+        }
+
+        .modal-body p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            text-align: left;
+        }
+
+        .modal-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+            color: #555;
+            padding-left: 0;
+        }
+
+        .modal-body b {
+            color: #2E7D32;
+            /* Dark green */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .products-container {
+                padding: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .product-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 200px;
+                text-align: center;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+
+            .navbar-menu {
+                padding-bottom: 50%;
+            }
+
+            #wrapper {
+                background-color: #2E7D32;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+          <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent">
+            <div id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-between xs-hide">
+                                <div class="d-flex">
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-clock-time"></i>Monday
+                                            - Friday 08.00 - 18.00</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i
+                                                class="icofont-envelope"></i>contact@Autonic .com</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-phone"></i>+1 609
+                                            535-2692</a></div>
+                                </div>
+
+                               <div class="login-signup" style="display:grid ; align-items: center;" >
+                                    <div style="display: flex;">
+                                   <a href="quote.html"  style="border: none;padding:0px 5px;">Request a Quote</a>
+        <a href="https://infinicrm.com/admin/authentication" style="border: none; padding: 0px 5px;">Login</a>
+        <a href="signup.html" style="padding: 0px 5px;" >Sign Up</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- side navbar starts from here -->
+            <div class="side-nav" id="sideNav">
+                <div class="side-nav-links">
+                    <a href="index.html" style="color: white;">Home</a>
+                    <a href="about.html" style="color: white;">About</a>
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+                            <a href="services.html" style="color: white;">Services</a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div>
+                    </div>
+                    <!-- second oen -->
+
+                    <!-- Toggling Services Dropdown in Side Nav -->
+                   <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="complete_products_section.html" style="color: white;">Products</a>
+                            <!-- <span class="dropdown-toggle" style="color: white;"></span> -->
+                        </div>
+                        <!-- <div class="side-dropdown-menu">
+                            <a href="#" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div> -->
+                    </div>
+                    <a href="industries.html" style="color: white;">Industries</a>
+
+                    <!-- third one starts from here -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="technology.html" style="color: white;">Technology </a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="software.html" style="color: black;">Software</a>
+                            <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                            <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                        </div>
+                    </div>
+
+                    <a href="SustainabilityRecycling.html" style="color: white;">Sustainability & Recycling</a>
+                    <a href="contact.html" style="color: white;">Contact</a>
+                    <a href="carrers.html" style="color: white;">Careers</a>
+                    <a href="quote.html" style="border: none;">Request a Quote</a>
+                    <a href="https://infinicrm.com/admin/authentication" style="border: none;">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+            <!-- side navbar ends from here  -->
+            <div id="hamburger-container">
+                <div class="hamburger" id="hamburger">
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                </div>
+            </div>
+            <!-- hamburger ending -->
+            <!-- this where the navbar is starting from  -->
+            <div id="navbar">
+                <div class="navbar-container">
+                    <!-- Hamburger -->
+
+                    <!-- hamburger ends here -->
+                    <!-- Logo -->
+                    <div class="navbar-logo">
+                        <a href="index.html" class="nav-logo">
+                           <img class="logo-main" src="images/Autonic-black.png" alt="">
+                            <img class="logo-mobile" src="images/logo-black.webp" alt=""> </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="navbar-menu">
+                        <a href="index.html" class="nav-link" style="color: black;">Home</a>
+                        <a href="about.html" class="nav-link" style="color: black;">About</a>
+
+                        <div class="nav-dropdown">
+                            <a href="services.html" class="nav-link" style="color: black;">Services ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                                <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                    Collection</a>
+                                <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                    Recycling</a>
+                                <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking &
+                                    Analytics</a>
+                                <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                                <a href="faq.html" style="color: black;">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-dropdown">
+                            <a href="complete_products_section.html" class="nav-link" style="color: black;">Products</a>
+
+                        </div> <a href="industries.html" class="nav-link" style="color: black;">Industries</a>
+                        <div class="nav-dropdown">
+                            <a href="technology.html" class="nav-link" style="color: black;">Technology ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="software.html" style="color: black;">Software</a>
+                                <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                                <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                            </div>
+                        </div> <a href="SustainabilityRecycling.html" class="nav-link"
+                            style="color: black;">Sustainability & Recycling</a>
+                        <a href="contact.html" class="nav-link" style="color: black;">Contact</a>
+                        <a href="carrers.html" class="nav-link" style="color: black;">Careers</a>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="navbar-buttons">
+                        <!-- <a href="quote.html" class="nav-button light" style="border: none;">Request a Quote</a>
+                        <a href="https://infinicrm.com/admin/authentication" class="nav-button"
+                            style="border: none;">Login</a>
+                        <a href="signup.html" class="nav-button">Sign Up</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- this is where the navbar is ending -->
+        </header>
+        <!-- header end -->
+
+        <!-- Products Section -->
+        <section class="products-container">
+            <h1>Our Products</h1>
+            <p>Discover our comprehensive range of industrial vehicles and equipment designed for waste management,
+                cleaning, sewer maintenance, and transportation solutions.</p>
+
+            <div class="product-filter">
+                <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                <button class="filter-btn" onclick="filterProducts('waste')">Waste Management</button>
+                <button class="filter-btn" onclick="filterProducts('water')">Water & Cleaning</button>
+                <button class="filter-btn" onclick="filterProducts('sewer')">Sewer & Drainage</button>
+                <button class="filter-btn" onclick="filterProducts('transport')">Transport & Utility</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Waste Management Category -->
+                <div class="product-card waste" onclick="openProductModal('compactor-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/garbagecompactortruck.jpeg"
+                            alt="Garbage Compactor Truck">
+                    </div>
+                    <div class="product-info">
+                        <h3>Garbage Compactor Truck</h3>
+                        <p>Advanced waste collection solution with hydraulic compaction system that reduces waste volume
+                            and increases efficiency in municipal and industrial waste management.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('compactor-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card waste" onclick="openProductModal('biomedical-tipper-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/biomedicalwastetipper.jpeg"
+                            alt="Biomedical Waste Tipper">
+                    </div>
+                    <div class="product-info">
+                        <h3>Biomedical Waste Tipper</h3>
+                        <p>Specialized vehicle for safe biomedical waste transportation, ensuring compliance with health
+                            and environmental safety standards.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('biomedical-tipper-modal')">View
+                            Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card waste" onclick="openProductModal('mini-dumper-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/minidumperandwaste.jpeg"
+                            alt="Mini Dumper / Tipper">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mini Dumper / Tipper</h3>
+                        <p>Compact solution for waste transportation in narrow spaces, ideal for construction, municipal
+                            waste, and agricultural applications.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('mini-dumper-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card waste" onclick="openProductModal('dumpster-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/dumpsterandgarbageconatiner.jpg"
+                            alt="Dumpster/Garbage Container">
+                    </div>
+                    <div class="product-info">
+                        <h3>Dumpster/Garbage Container</h3>
+                        <p>Durable waste storage containers in various capacities, designed for efficient waste storage
+                            and disposal in commercial, industrial, and residential settings.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('dumpster-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card waste" onclick="openProductModal('skip-loader-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/skillandmutiloaders.jpeg"
+                            alt="Skip/Multi Loaders">
+                    </div>
+                    <div class="product-info">
+                        <h3>Skip/Multi Loaders</h3>
+                        <p>Versatile machines designed for efficient material handling and lifting in challenging
+                            terrains, with interchangeable attachments for diverse applications.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('skip-loader-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card waste" onclick="openProductModal('stationary-compactor-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/waste compactor.jpeg"
+                            alt="Stationary Compactor">
+                    </div>
+                    <div class="product-info">
+                        <h3>Stationary Compactor</h3>
+                        <p>Fixed waste management machines that compress dry waste into detachable containers,
+                            significantly reducing volume for efficient disposal.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('stationary-compactor-modal')">View
+                            Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card waste" onclick="openProductModal('tractor-unit-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/garbagedisposalunit.jpeg"
+                            alt="Tractor based Garbage Disposal Unit">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tractor based Garbage Disposal Unit</h3>
+                        <p>Mobile systems that utilize a tractor's power to collect, compact, and transport waste
+                            efficiently in rural areas and small urban centers.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('tractor-unit-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Water & Cleaning Category -->
+                <div class="product-card water" onclick="openProductModal('vacuum-sweeper-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/vacuumroadsweeper.jpeg"
+                            alt="Vacuum Road Sweeper">
+                    </div>
+                    <div class="product-info">
+                        <h3>Vacuum Road Sweeper</h3>
+                        <p>Vehicle that utilizes a powerful vacuum system to remove debris from roadways, effectively
+                            collecting dust, dirt, and other particles.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('vacuum-sweeper-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card water" onclick="openProductModal('road-washer-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/roadwashertrucks.jpg"
+                            alt="Road Washer Truck">
+                    </div>
+                    <div class="product-info">
+                        <h3>Road Washer Truck</h3>
+                        <p>Vehicle equipped with high-pressure water systems designed to clean and sanitize roadways by
+                            removing dirt, debris, and pollutants.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('road-washer-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card water" onclick="openProductModal('mechanical-sweeper-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/mechnicalstreetsweeper.jpeg"
+                            alt="Mechanical Street Sweeper">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mechanical Street Sweeper</h3>
+                        <p>Efficient cleaning solution for roads and hard surfaces, powered by tractor hydraulic systems
+                            with rotating brushes and high-pressure water.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('mechanical-sweeper-modal')">View
+                            Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card water" onclick="openProductModal('water-bowzer-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/waterbowzer.jpeg"
+                            alt="Water Bowzer">
+                    </div>
+                    <div class="product-info">
+                        <h3>Water Bowzer</h3>
+                        <p>Mobile tank for transporting and dispensing water, used for dust suppression, irrigation, and
+                            fire fighting applications.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('water-bowzer-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Sewer & Drainage Category -->
+                <div class="product-card sewer" onclick="openProductModal('vacuum-suction-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/vacuumseverseductionpump.jpeg"
+                            alt="Vacuum Sewer Suction Truck">
+                    </div>
+                    <div class="product-info">
+                        <h3>Vacuum Sewer Suction Truck</h3>
+                        <p>Powerful vacuum technology for sewer cleaning and maintenance, effectively removing sludge
+                            and debris from sewer systems.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('vacuum-suction-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card sewer" onclick="openProductModal('sewer-jetting-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/sewerjettingunit.jpeg"
+                            alt="Sewer Jetting Unit">
+                    </div>
+                    <div class="product-info">
+                        <h3>Sewer Jetting Unit</h3>
+                        <p>High-performance solution using high-pressure water jets to clear blockages and clean sewer
+                            pipes effectively.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('sewer-jetting-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card sewer" onclick="openProductModal('combined-unit-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/combinedsewer.jpg"
+                            alt="Combined Sewer Suction and Jetting Unit">
+                    </div>
+                    <div class="product-info">
+                        <h3>Combined Sewer Unit</h3>
+                        <p>Integrated solution with both suction and jetting capabilities, offering cost-effective sewer
+                            cleaning for various applications.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('combined-unit-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Transport & Utility Category -->
+                <div class="product-card transport" onclick="openProductModal('dump-truck-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/dumpingtruck.jpeg" alt="Dump Truck">
+                    </div>
+                    <div class="product-info">
+                        <h3>Dump Truck</h3>
+                        <p>Heavy-duty truck designed to transport and dump loose materials like sand, gravel, and
+                            construction debris efficiently.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('dump-truck-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card transport" onclick="openProductModal('oil-tanker-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/48klitreofoiltank.jpeg"
+                            alt="48,000 Litres Oil Tanker">
+                    </div>
+                    <div class="product-info">
+                        <h3>48,000 Litres Oil Tanker</h3>
+                        <p>Large capacity liquid transport solution built to OGRA standards with advanced safety
+                            features and efficient fuel handling systems.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('oil-tanker-modal')">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card transport" onclick="openProductModal('mobile-workshop-modal')">
+                    <div class="product-img">
+                        <img src="assests-productpage/mobileworkshoptruck.jpeg"
+                            alt="Mobile Workshop Truck">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mobile Workshop Truck</h3>
+                        <p>Fully equipped mobile maintenance and repair solution for remote job sites with organized
+                            storage and essential tools.</p>
+                        <a href="javascript:void(0)" class="view-details"
+                            onclick="event.stopPropagation(); openProductModal('mobile-workshop-modal')">View
+                            Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Modals -->
+        <div id="compactor-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Garbage Compactor Truck</h2>
+                    <span class="close-modal" onclick="closeProductModal('compactor-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>The Garbage Compactor Truck by Autonic Engineering is designed for efficient and hygienic waste
+                        collection and disposal. This truck features a powerful hydraulic compaction system that reduces
+                        waste volume, increasing efficiency in municipal and industrial waste management. The compactor
+                        mechanism ensures high compression, minimizing the number of trips required for waste disposal.
+                    </p>
+                    <ul>
+                        <p><b><i>Garbage Compactor Truck Specifications</i></b></p>
+                        <li>Machine Type: Waste Collection & Compaction Unit</li>
+                        <li>Brand Name: Autonic Engineering</li>
+                        <li>Condition: Brand New</li>
+                        <li>Usage: Suitable for municipal, commercial, and industrial waste collection</li>
+                        <li>Dimensions: Based on capacity and truck chassis specifications</li>
+                        <li>Place of Origin: Pakistan</li>
+                        <li>Fuel Type: Diesel</li>
+                        <li>Material: Heavy-duty mild steel and stainless steel</li>
+                        <li>After-Sales Service: Available six days a week with a one-year warranty</li>
+                        <li>Chassis: Customizable as per customer requirements</li><br>
+                        <p><b><i>Technical Specifications</i></b></p>
+                        <li>Compactor Capacity: 6 to 20 cubic meters (customizable as per user needs)</li>
+                        <li>Body Design: Fully enclosed leak-proof compactor body</li>
+                        <li>Compaction Ratio: 3:1 to 6:1, depending on waste type</li>
+                        <li>Hopper Capacity: Varies based on model and user requirements</li>
+                        <li>Loading Mechanism: Rear-loading with hydraulic lifting for bins of various sizes</li>
+                        <li>Ejection System: Hydraulic ejection plate for complete waste discharge</li>
+                        <li>Control System: User-friendly electric and hydraulic control panel</li>
+                        <li>Safety Features: Emergency stop button, overload protection, and safety interlocks</li>
+                        <li>Driving Mechanism: Powered by PTO (Power Take-Off) from the truck engine</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="biomedical-tipper-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Biomedical Waste Tipper</h2>
+                    <span class="close-modal" onclick="closeProductModal('biomedical-tipper-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>The Biomedical Waste Tipper by Autonic Engineering is specifically designed for the safe and
+                        hygienic collection, transportation, and disposal of biomedical and hazardous waste. This
+                        vehicle ensures compliance with health and environmental safety standards by preventing leakage
+                        and contamination during transit.</p>
+                    <ul>
+                        <p><b><i>Biomedical Waste Tipper Specifications</i></b></p>
+                        <li>Brand Name: Autonic Engineering</li>
+                        <li>Condition: Brand New</li>
+                        <li>Usage: Ideal for hospitals, laboratories, and healthcare facilities</li>
+                        <li>Dimensions: Customizable based on capacity and chassis type</li>
+                        <li>Place of Origin: Pakistan</li>
+                        <li>Fuel Type: Diesel</li>
+                        <li>Material: Heavy-duty mild steel and stainless steel</li>
+                        <li>After-Sales Service: Available six days a week with a one-year warranty</li>
+                        <li>Chassis: Designed as per customer specifications</li>
+                        <p><b><i>Technical Specifications</i></b></p>
+                        <li>Container Capacity: 1.5 to 6 cubic meters (customizable)</li>
+                        <li>Body Design: Fully enclosed, leak-proof container with secure locking mechanism</li>
+                        <li>Loading Mechanism: Rear-loading with manual or hydraulic lifting options</li>
+                        <li>Disposal System: Hydraulic tipping for quick and efficient waste discharge</li>
+                        <li>Safety Features: Sealed compartments to prevent contamination, emergency stop functions, and
+                            reinforced structure</li>
+                        <li>Driving Mechanism: PTO-driven hydraulic system</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="mini-dumper-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Mini Dumper / Tipper</h2>
+                    <span class="close-modal" onclick="closeProductModal('mini-dumper-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>The Mini Dumper / Tipper by Autonic Engineering is a compact and highly efficient vehicle
+                        designed for transporting and unloading various types of materials, including solid waste,
+                        construction debris, and agricultural goods. It is built with a durable tipping mechanism to
+                        ensure quick and effortless dumping.</p>
+                    <ul>
+                        <p><b><i>Mini Dumper / Tipper Specifications</i></b></p>
+                        <li>Machine Type: Dumping & Transportation Unit</li>
+                        <li>Brand Name: Autonic Engineering</li>
+                        <li>Condition: Brand New</li>
+                        <li>Usage: Ideal for construction, municipal waste, and agricultural applications</li>
+                        <li>Dimensions: Based on capacity and chassis specifications</li>
+                        <li>Place of Origin: Pakistan</li>
+                        <li>Fuel Type: Diesel</li>
+                        <li>Material: Heavy-duty mild steel and stainless steel</li>
+                        <li>After-Sales Service: Available six days a week with a one-year warranty</li>
+                        <li>Chassis: Customizable as per user requirements</li>
+                        <p><b><i>Technical Specifications</i></b></p>
+                        <li>Container Capacity: 1 to 5 cubic meters (customizable)</li>
+                        <li>Body Design: Reinforced tipping body with high-strength steel</li>
+                        <li>Tipping Mechanism: Hydraulic system for easy unloading</li>
+                        <li>Loading Mechanism: Manual or mechanical loading options</li>
+                        <li>Safety Features: Stability-enhancing design, emergency stop system, and overload protection
+                        </li>
+                        <li>Driving Mechanism: PTO-driven or auxiliary engine option</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="dumpster-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Dumpster/Garbage Container</h2>
+                    <span class="close-modal" onclick="closeProductModal('dumpster-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>The Garbage Container by Autonic Engineering is designed for efficient waste storage and
+                        disposal. It ensures secure containment of waste until it is collected by a garbage compactor
+                        truck for proper disposal. These containers are widely used in commercial, industrial, and
+                        residential settings.</p>
+                    <ul>
+                        <p><b><i>Dumpster/Garbage Container Specifications</i></b></p>
+                        <li>Shape: Rectangular (With Conical-Bottom)</li>
+                        <li>Dimension (HxWxL): 1220mm x 1220mm x 800mm</li>
+                        <li>Container Capacity: 0.8m³</li>
+                        <li>Material: Galvanized Iron (GI) Sheet</li>
+                        <li>Sheet Thickness: 2mm Thick GI Sheet</li>
+                        <li>Top Lid: 1.5mm Thick GI Sheet</li>
+                        <li>Wheels: 4 Nos. Caster Wheels with a Wheel Locking Mechanism</li>
+                        <li>Emptying Method: Lifting by rear-end loading garbage compactor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="skip-loader-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Skip/Multi Loaders</h2>
+                    <span class="close-modal" onclick="closeProductModal('skip-loader-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>The Skip/Multi Loaders by Autonic Engineering are designed for the efficient collection,
+                        transportation, and disposal of large volumes of waste. These robust vehicles are ideal for
+                        municipal waste collection, construction debris removal, and bulk waste management applications.
+                    </p>
+                    <ul>
+                        <p><b><i>Skip/Multi Loader Specifications</i></b></p>
+                        <li>Machine Type: Waste Collection & Transportation Unit</li>
+                        <li>Brand Name: Autonic Engineering</li>
+                        <li>Condition: Brand New</li>
+                        <li>Usage: Suitable for industrial, commercial, and municipal applications</li>
+                        <li>Dimensions: Based on skip size and truck chassis specifications</li>
+                        <li>Place of Origin: Pakistan</li>
+                        <li>Fuel Type: Diesel</li>
+                        <li>Material: Heavy-duty mild steel and stainless steel</li>
+                        <li>After-Sales Service: Available six days a week with a one-year warranty</li>
+                        <li>Chassis: Customizable as per user requirements</li>
+                        <p><b><i>Technical Specifications</i></b></p>
+                        <li>Skip Capacity: 5 to 18 cubic meters (customizable)</li>
+                        <li>Body Design: Reinforced heavy-duty steel frame with lifting arms</li>
+                        <li>Lifting Mechanism: Hydraulic lifting arms with locking mechanism for secure lifting and
+                            transportation</li>
+                        <li>Loading & Unloading System: Hook lift or chain lift system for efficient skip loading and
+                            unloading</li>
+                        <li>Safety Features: Stability-enhancing design, emergency stop system, and overload protection
+                        </li>
+                        <li>Driving Mechanism: PTO-driven hydraulic system</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="stationary-compactor-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Stationary Compactor</h2>
+                    <span class="close-modal" onclick="closeProductModal('stationary-compactor-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Available in both top-loading and tip-cart loading configurations, our stationary compactors
+                        bridge the gap between lower-capacity mobile compactors and larger medium static compactors.</p>
+                    <ul>
+                        <p><b><i>Key Features of Stationary Compactors:</i></b></p>
+                        <li>✅ Leak-Proof & Eco-Friendly – Ensures no leakage, preventing environmental contamination.
+                        </li>
+                        <li>✅ Energy Efficient & High Load Capacity – Optimized for maximum waste compaction.</li>
+                        <li>✅ Convenient Dumping & Fixation – Designed for seamless operation and secure installation.
+                        </li>
+                        <li>✅ Customizable Options – Available in tailored configurations upon request.</li>
+                        <p><b><i>Advantages of Our Stationary Compactors:</i></b></p>
+                        <li>🔹 Cost-Effective – Fewer components, easy maintenance.</li>
+                        <li>🔹 Power Efficient – Lightweight container allowing higher payload capacity.</li>
+                        <li>🔹 Time-Saving – Rapid tip-cart cycle time for increased hourly capacity.</li>
+                        <li>🔹 Eco-Friendly – Advanced compaction blade ensures zero leakage and no pollution.</li>
+                        <li>🔹 Energy Efficient – Low energy consumption per ton of waste processed.</li>
+                        <li>🔹 User-Friendly Interface – Large digital display for easy operation monitoring.</li>
+                        <li>🔹 Easy Installation – Bolt-on fixation for quick setup and hassle-free relocation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="tractor-unit-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Tractor based Garbage Disposal Unit</h2>
+                    <span class="close-modal" onclick="closeProductModal('tractor-unit-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>The hydraulic capability of the Garbage Disposal Unit powers the system, which includes a
+                        Tractor-Towed Carrier and specially designed 5m³ containers strategically placed for efficient
+                        waste collection.</p>
+                    <ul>
+                        <p><b><i>Effortless & Hygienic Waste Collection</i></b></p>
+                        <li>✅ Compatible with 35 HP (or above) Tractors – Works with brands like Massey Ferguson, Fiat,
+                            etc.</li>
+                        <li>✅ Hands-Free Operation – Eliminates direct contact with waste.</li>
+                        <li>✅ Efficient Waste Handling – The process is simple:</li>
+                        <li>Citizens fill the containers</li>
+                        <li>The tractor lifts and loads the container onto the carrier.</li>
+                        <li>Waste is transported to the dumpsite and emptied automatically.</li>
+                        <li>The empty container is returned to its location while the tractor proceeds to the next site.
+                        </li>
+                        <p>This <b>one-man-operated system</b> streamlines waste management in <b>rural areas and small
+                                urban centers</b>, ensuring cleanliness and efficiency. <b>Autonic Engineering</b> has
+                            successfully provided this system to over <b>150 clients across Pakistan</b>, making it a
+                            trusted choice for sustainable waste disposal.</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="vacuum-sweeper-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Vacuum Road Sweeper</h2>
+                    <span class="close-modal" onclick="closeProductModal('vacuum-sweeper-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Our Vacuum Road Sweeper ensures thorough and efficient road cleaning, combining mechanical
+                        sweeping with a powerful vacuum system for optimal performance.</p>
+                    <ul>
+                        <p><b><i>Technical Features:</i></b></p>
+                        <li>🔹 Auxiliary Engine: 100–135 HP, water-cooled, 4-cylinder diesel engine.</li>
+                        <li>🔹 Suction Hoses: Side Ø150 × 250 mm, rear Ø150 mm for powerful debris collection.</li>
+                        <li>🔹 Hopper Tank Capacity: 4–6 m³, designed for maximum waste storage.</li>
+                        <li>🔹 Water Tank: 1000 liters, available in steel or corrosion-resistant steel based on
+                            customer preference.</li>
+                        <li>🔹 Brush System: Sweeping width of 2,100 mm when side and middle brushes operate together.
+                        </li>
+                        <li>🔹 Durable Paint Coating:</li>
+                        <li>Fully cleaned and primed with corrosion-resistant coating.</li>
+                        <li>Finished with an oven-cured, high-durability topcoat in the desired color.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="road-washer-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Road Washer Truck</h2>
+                    <span class="close-modal" onclick="closeProductModal('road-washer-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering's Road Washer Trucks are specially designed for high-pressure washing and
+                        sanitation of roads, ensuring cleanliness in urban areas, industrial driveways, resorts, and
+                        more. Equipped with a High-Pressure Italian Plunger Pump, these trucks efficiently remove dust
+                        and debris from roads and pavements using articulated high-pressure jetting nozzles. Available
+                        in various capacities, they can be mounted on any locally available vehicle chassis.</p>
+                    <ul>
+                        <p><b><i>Technical Specifications:</i></b></p>
+                        <li>🔹 Capacity: 5000 liters for extensive coverage.</li>
+                        <li>🔹 Tank Sheet Thickness: 4 mm for durability.</li>
+                        <li>🔹 Frame: Channel-type reinforced 6 mm for enhanced structural strength.</li>
+                        <li>🔹 Filling Points: Two 20″ diameter filling points for quick refilling.</li>
+                        <li>🔹 Tank Fixing: Secured along the chassis frame for stability.</li>
+                        <li>🔹 Ladders: Easy access to the platform.</li>
+                        <li>🔹 Sprinkler System: Front and rear sprinklers for efficient water distribution.</li>
+                        <li>🔹 Tank Shape: Rectangular design.</li>
+                        <li>🔹 Platform: Top-mounted chequered sheet platform with protective railing.</li>
+                        <li>🔹 Baffles: Two 10 SWG MS sheet baffles to reduce water movement during transport.</li>
+                        <li>🔹 Mudguards: 12 SWG MS sheet mudguards for added protection.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="mechanical-sweeper-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Mechanical Street Sweeper</h2>
+                    <span class="close-modal" onclick="closeProductModal('mechanical-sweeper-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>The <b>Mechanical Street Sweeper</b> is an ideal solution for <b>efficient cleaning of roads,
+                            production floors, and other hard surfaces</b>. Powered by the <b>hydraulic system of any 45
+                            HP tractor</b>, it ensures effective and hassle-free street cleaning.</p>
+                    <ul>
+                        <p>Autonic Engineering takes pride in being a pioneer in <b> local design and manufacturing </b>
+                            of <b>Tractor-Towed Mechanical Street Sweepers</b> in Pakistan. With over <b>300 units
+                                successfully deployed</b> across municipalities, housing societies, commercial farms,
+                            and industries, our sweepers have set a benchmark for reliability and efficiency.</p>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Powered by Tractor PTO – Uses the tractor's power take-off system for seamless operation.
+                        </li>
+                        <li>✅ Multiple Cleaning Controls – Adjustable water pressure, broom rotation speed, and broom
+                            height for enhanced cleaning precision.</li>
+                        <li>✅ Versatile & Detachable – Can be easily detached from the tractor once the sweeping task is
+                            completed, allowing the tractor to be used for other operations.</li>
+                        <li>✅ Cost-Effective Solution – One of the most economical mechanical street sweeping machines
+                            available.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="water-bowzer-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Water Bowzer</h2>
+                    <span class="close-modal" onclick="closeProductModal('water-bowzer-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering offers high-performance water bowzers designed for efficient water
+                        transportation, spraying, and sprinkling. Available in 3000 to 8000-liter capacities, these
+                        bowzers are ideal for municipal, industrial, and agricultural applications.</p>
+                    <ul>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Capacity: 3000 to 8000 liters to suit various operational needs.</li>
+                        <li>✅ Tank Material: 4mm GI or MS sheet for durability and corrosion resistance.</li>
+                        <li>✅ Filling Points: Two 20" diameter filling ports for quick refilling.</li>
+                        <li>✅ Access Ladders: Ensures easy and safe access to the tank.</li>
+                        <li>✅ Sprinkler System: Strategically positioned at the rear for effective water distribution.
+                        </li>
+                        <li>✅ Engine Power: Honda Petrol Engine for efficient water filling and sprinkler operation.
+                        </li>
+                        <li>✅ Water Gun: 360° horizontal & 90° vertical rotation for flexible spraying coverage.</li>
+                        <li>✅ Delivery & Suction Hoses: Included with additional accessories as per customer
+                            requirements.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="vacuum-suction-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Vacuum Sewer Suction Truck</h2>
+                    <span class="close-modal" onclick="closeProductModal('vacuum-suction-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering's Vacuum Sewer Suction Truck is a high-performance waste management solution,
+                        designed for industrial, commercial, and agricultural applications. Engineered for robustness,
+                        durability, and efficiency, it utilizes a powerful vacuum pump to effectively remove sludge and
+                        wastewater.</p>
+                    <p>A steel-reinforced suction pipe is connected to the tank's inlet valve, ensuring efficient sludge
+                        removal by fully immersing the suction head into the sewer. Once the valve is opened, waste is
+                        automatically drawn into the tank, making the process efficient and hygienic.</p>
+                    <ul>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Machine Type: Sludge Suction Unit</li>
+                        <li>✅ Brand: Autonic Engineering</li>
+                        <li>✅ Condition: Brand New</li>
+                        <li>✅ Usage: Industrial, Commercial, Agricultural, and Municipal Applications</li>
+                        <li>✅ Customization: Dimensions depend on capacity, truck chassis, or trailer type</li>
+                        <li>✅ Fuel Type: Diesel</li>
+                        <li>✅ Material: Mild Steel & Stainless Steel</li>
+                        <li>✅ After-Sales Support: Available 6 days a week, with a 1-year warranty</li>
+                        <li>✅ Chassis: Customizable as per user requirements</li>
+                        <p><b><i>Technical Specifications:</i></b></p>
+                        <li>🔹 Tank Capacity: 3500 – 7000 liters (customized as per user needs)</li>
+                        <li>🔹 Body Design: Independent design with a tipping arrangement</li>
+                        <li>🔹 Overfilling Protection System: High-quality primary & secondary cutoffs to prevent
+                            overfilling</li>
+                        <li>🔹 Rear End: Hydraulically operated dish end with an airtight locking system</li>
+                        <li>🔹 Hose Tray: Integrated along the tank for carrying suction hoses & accessories</li>
+                        <li>🔹 Maximum Airflow: 7000 – 13,000 liters per minute for superior suction power</li>
+                        <li>🔹 Drive System: Operated via PTO or auxiliary engine</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="sewer-jetting-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Sewer Jetting Unit</h2>
+                    <span class="close-modal" onclick="closeProductModal('sewer-jetting-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering's Sewer Jetting Unit is a high-performance solution for clearing blockages in
+                        sewer lines. Equipped with a High-Pressure Plunger Pump, it efficiently forces water through a
+                        lightweight jetting hose fitted with a specialized jetting nozzle for deep and effective
+                        cleaning. The unit is powered by either the truck PTO or an auxiliary engine, ensuring powerful
+                        and uninterrupted operation.</p>
+                    <ul>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Machine Type: Sewer Jetting Unit</li>
+                        <li>✅ Brand: Autonic Engineering</li>
+                        <li>✅ Work Type: High-Pressure Sewage Jetting</li>
+                        <li>✅ Condition: Brand New</li>
+                        <li>✅ Usage: Clearing Blockages in Sewer Lines</li>
+                        <li>✅ Customization: Dimensions & chassis based on capacity and user requirements</li>
+                        <li>✅ Material: Mild Steel & Stainless Steel for durability</li>
+                        <li>✅ After-Sales Support: Available 6 days a week, with a 1-year warranty</li>
+                        <li>✅ Power Source: Truck PTO or Auxiliary Engine</li>
+                        <p><b><i>Technical Specifications:</i></b></p>
+                        <li>🔹 Tank Capacity: 3500 – 7000 liters (customized as per user needs)</li>
+                        <li>🔹 Jetting Hose Reel: Rear-mounted, hydraulically powered reel for a 3/4" diameter jetting
+                            hose with a European-origin hydraulic motor</li>
+                        <li>🔹 Level Gauge: Liquid level indicator for monitoring the water level in the tank</li>
+                        <li>🔹 Filling Point: Minimum of one 20" diameter filling point for efficient refilling</li>
+                        <li>🔹 Jetting Nozzles: Italian jetting nozzles installed per user requirements</li>
+                        <li>🔹 Jetting Pump Flow Rate: 112 – 263 liters per minute for high-pressure jetting</li>
+                        <li>🔹 Pressure Range: 140 – 200 Bar for powerful sewage cleaning</li>
+                        <li>🔹 Pump Drive System: Operated via auxiliary engine or truck PTO</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="combined-unit-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Combined Sewer Unit</h2>
+                    <span class="close-modal" onclick="closeProductModal('combined-unit-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering's Combined Sewer Suction & Jetting Unit offers a cost-effective and
+                        high-performance solution for municipal, industrial, commercial, and agricultural sewer cleaning
+                        operations. By integrating both suction and jetting functions into a single unit, this system
+                        eliminates the need for separate machines, reducing fuel consumption, maintenance costs, and the
+                        requirement for an additional truck chassis.</p>
+                    <ul>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Machine Type: Combined Suction & Jetting Unit</li>
+                        <li>✅ Brand: Autonic Engineering</li>
+                        <li>✅ Work Type: Mechanical</li>
+                        <li>✅ Power Output: 110 HP for superior performance</li>
+                        <li>✅ Model: AE-CU-3500-46</li>
+                        <li>✅ Condition: Brand New</li>
+                        <li>✅ Usage: Municipal, Industrial, Commercial, and Agricultural Applications</li>
+                        <li>✅ Material: Mild Steel & Stainless Steel for durability</li>
+                        <li>✅ Fuel Type: Diesel</li>
+                        <li>✅ After-Sales Support: Available 6 days a week, with a 1-year warranty</li>
+                        <p><b><i>Technical Specifications:</i></b></p>
+                        <li>🔹 Suction Tank: Cylindrical tank with a full-opening dish end and locking system for easy
+                            maintenance and operation</li>
+                        <li>🔹 Jetting Tank: Roto-molded LLDPE modular design tanks (08 units), fitted alongside the
+                            vacuum tank for efficient space utilization</li>
+                        <li>🔹 Body Design: Independent structure with a tipping arrangement for ease of unloading</li>
+                        <li>🔹 Overfilling Protection:</li>
+                        <li>Primary Protection: Automatic float shut-off system to stop suction when the tank is near
+                            full</li>
+                        <li>Secondary Protection: Additional cut-off system to prevent vacuum pump damage if the first
+                            protection fails</li>
+                        <li>🔹 Rear End: Hydraulically operated dish opening with locking system and airtight sealing
+                        </li>
+                        <li>🔹 Jetting Hose Reel: Rear-mounted, hydraulically powered reel capable of carrying 200 feet
+                            of 3/4" diameter jetting hose</li>
+                        <li>🔹 Hydraulic Motor: European-origin hydraulic motor for high durability and performance</li>
+                        <li>🔹 Level Gauge: Liquid level indicator for easy monitoring of water levels</li>
+                        <li>🔹 Filling Point: Minimum 20" diameter for efficient water refilling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="dump-truck-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Dump Truck</h2>
+                    <span class="close-modal" onclick="closeProductModal('dump-truck-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering's Dump Truck is a high-performance, durable, and versatile solution for
+                        efficient waste and material transportation. Designed with high-quality Italian hydraulic
+                        components, it ensures smooth tipping operations, longevity, and ease of unloading. The advanced
+                        design, combined with superior manufacturing practices, guarantees reliable performance for
+                        municipal, industrial, and construction applications.</p>
+                    <ul>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Capacity Range: 3 tons to 18 tons, adaptable to various applications</li>
+                        <li>✅ Tipping & Lowering Control: Conveniently located in the driver's cabin for ease of
+                            operation</li>
+                        <li>✅ Hydraulic System: Imported single/double-acting hydraulic cylinder for smooth lifting</li>
+                        <li>✅ Durable Construction: Heavy-duty steel body for long-lasting performance</li>
+                        <li>✅ Automatic Tailgate: Opens automatically upon lifting for efficient unloading</li>
+                        <li>✅ Hydraulic Pump System: Closed-coupled hydraulic pump to minimize mechanical complexity and
+                            enhance efficiency</li>
+                        <li>✅ Compatible Chassis:</li>
+                        <li>Japanese Brands: Isuzu, Hino, Nissan, Mitsubishi</li>
+                        <li>Chinese Brands: FAW, Dong Feng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="oil-tanker-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>48,000 Litres Oil Tanker</h2>
+                    <span class="close-modal" onclick="closeProductModal('oil-tanker-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering's Semi-Trailer Oil Tanker / Petrol Tanker is built with heavy-duty,
+                        lightweight construction that meets OGRA (Oil and Gas Regulatory Authority) and UNADR standards.
+                        Designed for strength, durability, and safety, it features advanced safety mechanisms, including
+                        an emergency drain cutout, overflow sensors, internal vapor recovery system, safety valves, and
+                        roll-over protection.</p>
+                    <ul>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Tank Shape: Cylindrical (Inverted 'D') for high strength and low center of gravity</li>
+                        <li>✅ Material: Mild Steel ST52 for durability and corrosion resistance</li>
+                        <li>✅ Compartment Design: Four compartments with baffles as per OGRA standards (Front to Rear:
+                            08 KL + 16 KL + 08 KL + 16 KL)</li>
+                        <li>✅ Multi-Channel Anti-Wave Partitions: Minimizes liquid movement for stability and safe
+                            transport</li>
+                        <li>✅ Safety Compliance:</li>
+                        <li>OGRA Compliant design with certified drawing, welding procedures, and material
+                            identification</li>
+                        <li>Hydro Testing at 5 PSI (34.4 KPa) for leak-proof assurance</li>
+                        <li>Ultrasonic Flaw Detection (UFD) testing for weld integrity</li>
+                        <li>High-quality paint finish as per OMC specifications with MSDS certification</li>
+                        <li>✅ Bottom Loading Design Available: Ensures safe and efficient fuel handling</li>
+                        <p><b><i>Additional Safety Feature (Optional): Baffle Balls</i></b></p>
+                        <li>🔹 Baffle Balls minimize dynamic liquid movement inside the tank, leading to:</li>
+                        <li>Reduced stopping distance for safer braking</li>
+                        <li>Decreased swaying of the tanker for stability</li>
+                        <li>Enhanced driver comfort and control</li>
+                        <p><b><i>Technical Specifications:</i></b></p>
+                        <li>🔹 Capacity: 48,000 Liters</li>
+                        <li>🔹 Compartments: 4 Nos</li>
+                        <li>🔹 Width: 2500 mm</li>
+                        <li>🔹 Height: 3877 mm</li>
+                        <li>🔹 Length: 13,150 mm</li>
+                        <li>🔹 Tanker Weight: 11,500 kg</li>
+                        <li>🔹 Wheel Rim: 13 pcs, size 7.5 – 20</li>
+                        <li>🔹 King Pin: Heavy-duty 2" imported</li>
+                        <li>🔹 Tire Size: 11.00 x 20</li>
+                        <li>🔹 Axles: 3 imported heavy-duty axles</li>
+                        <li>🔹 Landing Legs: Imported heavy-duty</li>
+                        <li>🔹 Finish: Customizable as per requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-workshop-modal" class="product-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Mobile Workshop Truck</h2>
+                    <span class="close-modal" onclick="closeProductModal('mobile-workshop-modal')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Autonic Engineering's Mobile Workshop Truck is an efficient, on-site maintenance solution
+                        designed for remote job sites such as oil and gas fields, hydro dam projects, and mining sites.
+                        This fully customized truck is equipped with well-organized storage, high-quality insulation,
+                        and essential tools, ensuring quick and effective technical support in the field.</p>
+                    <ul>
+                        <p><b><i>Key Features:</i></b></p>
+                        <li>✅ Durable & Insulated Structure:</li>
+                        <li>Sidewalls & Roof: Aluminum Composite Panel for durability and protection</li>
+                        <li>Foam Insulation: Ensures thermal control and enhanced comfort inside the workshop</li>
+                        <li>✅ Heavy-Duty Flooring: Aluminum checkered plate for added strength and slip resistance</li>
+                        <li>✅ Well-Organized Storage & Safety Features:</li>
+                        <li>Dedicated space & racks for toolkits, spare parts, fire extinguishers, cleaning materials,
+                            safety booklets, and more</li>
+                        <li>Fire Safety Signage & Labels for a secure working environment</li>
+                        <li>✅ Efficient Lighting & Electrical System:</li>
+                        <li>4 Fluorescent Interior Lights for bright illumination</li>
+                        <li>Electric Panel: 220V AC and 12V DC outlets for operating tools and equipment</li>
+                        <li>220V AC Input Socket with a 10-meter extension cable for external power supply</li>
+                        <li>✅ Enhanced Safety & Visibility:</li>
+                        <li>Two Roof-Mounted Warning Beacon Lights for safety in hazardous environments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/Autonic-white.png" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>
+     At Autonic, we are dedicated to delivering reliable, intelligent, and eco-conscious waste management solutions designed to meet the specific needs of residential, commercial, and industrial sectors. By integrating cutting-edge automation with sustainable practices, we aim to minimize environmental impact, enhance operational efficiency, and drive a cleaner, smarter future for communities and the planet.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                              <li>
+                    <a href="smartwastesorting.html" >Smart Sorting</a>
+                </li>
+                <li>
+                    <a href="routeoptimization.html" >Route Optimization for- Waste
+                        Collection</a>
+                </li>
+                <li>
+                    <a href="contaminationdetection.html" >Contamination Detection in-
+                        Recycling</a>
+                </li>
+                <li>
+                    <a href="wastetrackinganalytics.html" >Waste Tracking &
+                        Analytics</a>
+                </li>
+                <li>
+                    <a href="circulareconomy.html" >Circular Economy Marketplace</a>
+                </li>
+                <li>
+                    <a href="faq.html" >FAQ</a>
+                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- footer end -->
+    </div>
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script>
+        // Filter functionality
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Show/hide cards based on category
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Modal functionality
+        function openProductModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            if (event.target.classList.contains('product-modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.product-modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+    
+    const hamburger = document.getElementById('hamburger');
+    const sideNav = document.getElementById('sideNav');
+
+    hamburger.addEventListener('click', () => {
+      sideNav.classList.toggle('open');
+    });
+
+    // Optional: Click outside to close
+    window.addEventListener('click', (e) => {
+      if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+        sideNav.classList.remove('open');
+      }
+    });
+    const carets = document.querySelectorAll('.dropdown-toggle');
+
+carets.forEach(caret => {
+  caret.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click bubbling
+    const sideDropdown = caret.closest('.side-dropdown');
+    sideDropdown.classList.toggle('open');
+  });
+});
+
+    </script>
+</body>
+
+</html>

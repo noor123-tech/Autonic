@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Autonic — Advanced Waste Management Equipment</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Autonic's cutting-edge waste management equipment includes smart bins, compactors, sorting systems, and specialized vehicles for efficient waste processing." name="description">
+    <meta content="waste equipment, recycling machinery, smart bins, waste compactors, sorting systems, garbage trucks" name="keywords">
+    <meta content="" name="author">
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Custom Equipment Page Styles */
+        .equipment-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .equipment-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .equipment-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .specs-table {
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        .specs-table tr:not(:last-child) td {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .tech-highlight {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 30px;
+        }
+        .tech-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: rgba(var(--color-primary-rgb), 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .comparison-table th {
+            background: rgba(255,255,255,0.05);
+        }
+        .video-thumbnail {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .video-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .video-thumbnail:hover::after {
+            background: rgba(0,0,0,0.1);
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .white-container{
+            color: white;
+        }
+        .white-container a{
+            color: white;
+        }
+        .black-container
+        {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+
+        <!-- preloader -->
+        <div id="de-loader"></div>
+
+        <!-- Header Placeholder -->
+        <!-- HEADER START -->
+        
+        <!-- HEADER END -->
+
+        <!-- Hero Section -->
+        <section id="section-hero-equipment" class="text-light no-top no-bottom jarallax">
+            <img src="images/equipment/hero-bg.webp" class="jarallax-img" alt="Waste Equipment">
+            <div class="sw-overlay op-7"></div>
+            <div class="container relative z-2">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="wow fadeInUp">Advanced Waste Management Equipment</h1>
+                        <p class="lead wow fadeInUp" data-wow-delay=".3s">Engineered for efficiency, durability, and smart waste processing</p>
+                        <div class="d-flex gap-3 mt-4 wow fadeInUp" data-wow-delay=".6s">
+                            <a href="quote.html" class="btn-main">Request Quote</a>
+                            <a href="#products" class="btn-line">Explore Products</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".9s">
+                        <img src="images/equipment/hero-compactor.webp" class="w-100" alt="Waste Compactor" style="max-width: 600px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Categories -->
+        <section id="products" class="pt-100 pb-70 bg-dark">
+            <div class="container">
+                <div class="row g-4 justify-content-center text-center mb-5">
+                    <div class="col-lg-8">
+                        <div class="subtitle wow fadeInUp">Our Product Lines</div>
+                        <h2 class="wow fadeInUp white-container" data-wow-delay=".2s">Specialized Waste Equipment</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0s">
+                        <div class="equipment-card h-100">
+                            <div class="equipment-badge">Smart Tech</div>
+                            <img src="images/equipment/smart-bins.webp" class="w-100" alt="Smart Bins">
+                            <div class="p-4 white-container">
+                                <h4 class="white-container">AI Smart Bins</h4>
+                                <p>Self-sorting containers with fill-level monitoring and contamination detection</p>
+                                <ul class="ul-check mt-3">
+                                    <li>240L to 1100L capacities</li>
+                                    <li>Solar-powered options</li>
+                                    <li>Integrated compaction</li>
+                                </ul>
+                                <a href="smart-bins.html" class="btn-line mt-3 white-container">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="equipment-card h-100">
+                            <div class="equipment-badge">Heavy Duty</div>
+                            <img src="images/equipment/compactors.webp" class="w-100" alt="Compactors">
+                            <div class="p-4 white-container">
+                                <h4 class="white-container">Waste Compactors</h4>
+                                <p>High-performance compaction systems for volume reduction</p>
+                                <ul class="ul-check mt-3">
+                                    <li>5:1 to 8:1 compaction ratios</li>
+                                    <li>10-50 ton capacities</li>
+                                    <li>IoT monitoring</li>
+                                </ul>
+                                <a href="compactors.html" class="btn-line mt-3 white-container">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="equipment-card h-100">
+                            <div class="equipment-badge">Collection</div>
+                            <img src="images/equipment/collection-vehicles.webp" class="w-100" alt="Collection Vehicles">
+                            <div class="p-4 white-container">
+                                <h4 class="white-container">Smart Collection Vehicles</h4>
+                                <p>Fleet vehicles with integrated weighing and route optimization</p>
+                                <ul class="ul-check mt-3">
+                                    <li>Electric & hybrid options</li>
+                                    <li>10-32 cubic yard capacities</li>
+                                    <li>Automated lifting systems</li>
+                                </ul>
+                                <a href="vehicles.html" class="btn-line mt-3 white-container">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Highlights -->
+        <section class="pt-100 pb-100">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6 wow zoomIn">
+                        <div class="video-thumbnail">
+                            <img src="images/equipment/tech-video-thumbnail.webp" class="w-100" alt="Equipment Video">
+                            <div class="play-button">
+                                <i class="fa fa-play text-dark"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="subtitle wow fadeInUp">Innovation</div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".2s">Built With Smart Technology</h2>
+                        
+                        <div class="tech-highlight wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="tech-icon">
+                                <img src="images/icons/sensor-chip.webp" width="24" alt="Sensors">
+                            </div>
+
+
+    
+                            <div>
+                                <h5>IoT-Enabled Monitoring</h5>
+                                <p class="black-container">Real-time tracking of equipment status, maintenance needs, and performance metrics</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-highlight wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="tech-icon">
+                                <img src="images/icons/ai-brain.webp" width="24" alt="AI">
+                            </div>
+                            <div>
+                                <h5>AI-Powered Optimization</h5>
+                                <p class="black-container">Self-adjusting compaction and sorting based on material detection</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-highlight wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="tech-icon">
+                                <img src="images/icons/battery.webp" width="24" alt="Battery">
+                            </div>
+                            <div>
+                                <h5>Eco-Friendly Operation</h5>
+                                <p class="black-container">Electric and hybrid options with regenerative energy systems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Specifications -->
+        <section class="pt-100 pb-100 bg-dark">
+            <div class="container">
+                <div class="row g-4 justify-content-center text-center mb-5">
+                    <div class="col-lg-8">
+                        <div class="subtitle wow fadeInUp">Technical Details</div>
+                        <h2 class="wow fadeInUp white-container" data-wow-delay=".2s">Smart Bin Specifications</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">Our flagship product with industry-leading technology</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 wow fadeInUp">
+                        <div class="specs-table p-4">
+                            <table class="table table-borderless white-container">
+                                <tbody>
+                                    <tr>
+                                        <td width="40%"><strong>Model</strong></td>
+                                        <td>Autonic SB-240</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Capacity</strong></td>
+                                        <td>240 liters (standard)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Dimensions</strong></td>
+                                        <td>H: 110cm × W: 58cm × D: 74cm</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Weight</strong></td>
+                                        <td>32kg (empty)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Materials</strong></td>
+                                        <td>Recycled HDPE with stainless steel components</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="specs-table p-4">
+                            <table class="table table-borderless white-container">
+                                <tbody>
+                                    <tr>
+                                        <td width="40%"><strong>Power</strong></td>
+                                        <td>Solar + rechargeable battery (7-day backup)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Connectivity</strong></td>
+                                        <td>LoRaWAN, 4G LTE, Bluetooth</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Sensors</strong></td>
+                                        <td>Fill-level, temperature, tilt, compaction</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Operating Temp</strong></td>
+                                        <td>-30°C to +60°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Warranty</strong></td>
+                                        <td>3 years standard</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">
+                        <img src="images/equipment/specs-diagram.webp" class="w-100" alt="Technical Diagram" style="max-width: 800px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="pt-100 pb-100">
+            <div class="container">
+                <div class="row g-4 justify-content-center text-center mb-5">
+                    <div class="col-lg-8">
+                        <div class="subtitle wow fadeInUp">Product Range</div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".2s">Equipment Comparison</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-12 wow fadeInUp">
+                        <div class="table-responsive">
+                            <table class="table comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th width="20%">Model</th>
+                                        <th>SB-240</th>
+                                        <th>SB-660</th>
+                                        <th>SB-1100</th>
+                                        <th>WC-5000</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Type</strong></td>
+                                        <td>Smart Bin</td>
+                                        <td>Smart Bin</td>
+                                        <td>Smart Bin</td>
+                                        <td>Compactor</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Capacity</strong></td>
+                                        <td>240L</td>
+                                        <td>660L</td>
+                                        <td>1100L</td>
+                                        <td>5 cu.yd</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Compaction</strong></td>
+                                        <td>3:1</td>
+                                        <td>4:1</td>
+                                        <td>5:1</td>
+                                        <td>8:1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Weight</strong></td>
+                                        <td>32kg</td>
+                                        <td>78kg</td>
+                                        <td>125kg</td>
+                                        <td>850kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Best For</strong></td>
+                                        <td>Residential</td>
+                                        <td>Commercial</td>
+                                        <td>Industrial</td>
+                                        <td>Municipal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="pt-100 pb-100 jarallax text-light" style="background: linear-gradient(135deg, #0a192f 0%, #1a3a6a 100%);">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-8 wow fadeInUp">
+                        <h2>Ready to Upgrade Your Waste Equipment?</h2>
+                        <p class="lead mb-0">Our experts will help you select the perfect solutions for your needs.</p>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="d-flex gap-3 justify-content-lg-end">
+                            <a href="quote.html" class="btn-main">Request Quote</a>
+                            <a href="contact.html" class="btn-line">Contact Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Placeholder -->
+        <!-- FOOTER START -->
+            <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/logo-white.webp" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>We are committed to providing dependable, eco-friendly waste management solutions tailored to
+                            the unique needs of homes, businesses, and industries. By combining advanced technology with
+                            sustainable practices, we work to reduce environmental impact, increase efficiency, and
+                            support a cleaner, greener future for our communities and the planet.</p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                                        <li><a href="service-single.html">Waste Collection</a></li>
+                                        <li><a href="service-single.html">Commercial Recycling</a></li>
+                                        <li><a href="service-single.html">Dumpster Rental</a></li>
+                                        <li><a href="service-single.html">Organic Waste</a></li>
+                                        <li><a href="service-single.html">E-waste Disposal</a></li>
+                                        <li><a href="service-single.html">Medical Waste</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- FOOTER END -->
+
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script>
+        // Video Popup
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoThumbnail = document.querySelector('.video-thumbnail');
+            if (videoThumbnail) {
+                videoThumbnail.addEventListener('click', function() {
+                    // Replace with your video URL
+                    const videoUrl = "https://www.youtube.com/watch?v=example";
+                    window.open(videoUrl, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

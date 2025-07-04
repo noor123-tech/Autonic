@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Autonic  — Waste Management and Recycling Website Template</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="Autonic  — Waste Management and Recycling Website Template" name="description" >
+    <meta content="" name="keywords" >
+    <meta content="" name="author" >
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
+
+</head>
+<style>
+
+       /* Team Section Styling */
+        .team-section {
+            position: relative;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e0f2e9 100%);
+            overflow: hidden;
+        }
+
+        .team-wave-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%232E7D32" opacity=".05"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%232E7D32" opacity=".05"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%232E7D32" opacity=".05"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .team-container {
+            position: relative;
+            z-index: 1;
+            margin-top: 5%;
+        }
+
+        .team-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-title h2 {
+            font-size: 42px;
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .team-title p {
+            color: #555;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .team-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+
+        .team-card {
+            width: calc(20% - 30px);
+            margin: 0 15px;
+            position: relative;
+            transition: all 0.5s ease;
+            margin-bottom: 60px;
+        }
+
+        .team-card.up {
+            transform: translateY(-40px);
+        }
+
+        .team-card.down {
+            transform: translateY(40px);
+        }
+
+        .team-card-inner {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .team-card:hover .team-card-inner {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(46, 125, 50, 0.2);
+        }
+
+        .team-img {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-img img {
+            transform: scale(1.1);
+        }
+
+        .team-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(46, 125, 50, 0.8), transparent);
+            padding: 30px 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .team-overlay {
+            transform: translateY(0);
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 22px;
+            color: #2E7D32;
+            margin-bottom: 5px;
+        }
+
+        .team-info p.position {
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .team-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .team-social a:hover {
+            background: #1B5E20;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 1200px) {
+            .team-card {
+                width: calc(33.333% - 30px);
+                margin-bottom: 80px;
+            }
+
+            .team-card.up,
+            .team-card.down {
+                transform: none;
+            }
+
+            .team-card:nth-child(odd) {
+                transform: translateY(-40px);
+            }
+
+            .team-card:nth-child(even) {
+                transform: translateY(40px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-card {
+                width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team-card {
+                width: 100%;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .team-card.up,
+            .team-card.down,
+            .team-card:nth-child(odd),
+            .team-card:nth-child(even) {
+                transform: none;
+            }
+        }
+</style>
+<body>
+    <div id="wrapper">
+       <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent">
+            <div id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-between xs-hide">
+                                <div class="d-flex">
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-clock-time"></i>Monday
+                                            - Friday 08.00 - 18.00</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i
+                                                class="icofont-envelope"></i>contact@Autonic .com</a></div>
+                                    <div class="topbar-widget me-3"><a href="#"><i class="icofont-phone"></i>+1 609
+                                            535-2692</a></div>
+                                </div>
+
+                               <div class="login-signup" style="display:grid ; align-items: center;" >
+                                    <div style="display: flex;">
+                                   <a href="quote.html"  style="border: none;padding:0px 5px;">Request a Quote</a>
+        <a href="https://infinicrm.com/admin/authentication" style="border: none; padding: 0px 5px;">Login</a>
+        <a href="signup.html" style="padding: 0px 5px;" >Sign Up</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- side navbar starts from here -->
+            <div class="side-nav" id="sideNav">
+                <div class="side-nav-links">
+                    <a href="index.html" style="color: white;">Home</a>
+                    <a href="about.html" style="color: white;">About</a>
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+                            <a href="services.html" style="color: white;">Services</a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div>
+                    </div>
+                    <!-- second oen -->
+
+                    <!-- Toggling Services Dropdown in Side Nav -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="complete_products_section.html" style="color: white;">Products</a>
+                            <!-- <span class="dropdown-toggle" style="color: white;"></span> -->
+                        </div>
+                        <!-- <div class="side-dropdown-menu">
+                            <a href="#" style="color: black;">Smart Waste Sorting (AI)</a>
+                            <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                Collection</a>
+                            <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                Recycling</a>
+                            <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking & Analytics</a>
+                            <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                            <a href="faq.html" style="color: black;">FAQ</a>
+                        </div> -->
+                    </div>
+                    <a href="industries.html" style="color: white;">Industries</a>
+
+                    <!-- third one starts from here -->
+                    <div class="side-dropdown">
+                        <div class="sidebarmenu-container">
+
+                            <a href="technology.html" style="color: white;">Technology </a>
+                            <span class="dropdown-toggle" style="color: white;"></span>
+                        </div>
+                        <div class="side-dropdown-menu">
+                            <a href="software.html" style="color: black;">Software</a>
+                            <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                            <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                        </div>
+                    </div>
+
+                    <a href="SustainabilityRecycling.html" style="color: white;">Sustainability & Recycling</a>
+                    <a href="contact.html" style="color: white;">Contact</a>
+                    <a href="carrers.html" style="color: white;">Careers</a>
+                    <a href="quote.html" style="border: none;">Request a Quote</a>
+                    <a href="https://infinicrm.com/admin/authentication" style="border: none;">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+            <!-- side navbar ends from here  -->
+            <div id="hamburger-container">
+                <div class="hamburger" id="hamburger">
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                    <span style="border: 1px solid white;"></span>
+                </div>
+            </div>
+            <!-- hamburger ending -->
+            <!-- this where the navbar is starting from  -->
+            <div id="navbar">
+                <div class="navbar-container">
+                    <!-- Hamburger -->
+
+                    <!-- hamburger ends here -->
+                    <!-- Logo -->
+                    <div class="navbar-logo">
+                        <a href="index.html" class="nav-logo">
+                           <img class="logo-main" src="images/Autonic-white.png" alt="">
+                            <img class="logo-mobile" src="images/logo-white.webp" alt=""> </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="navbar-menu">
+                        <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                        <a href="about.html" class="nav-link" style="color: white;">About</a>
+
+                        <div class="nav-dropdown">
+                            <a href="services.html" class="nav-link" style="color: white;">Services ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="smartwastesorting.html" style="color: black;">Smart Waste Sorting (AI)</a>
+                                <a href="routeoptimization.html" style="color: black;">Route Optimization for Waste
+                                    Collection</a>
+                                <a href="contaminationdetection.html" style="color: black;">Contamination Detection in
+                                    Recycling</a>
+                                <a href="wastetrackinganalytics.html" style="color: black;">Waste Tracking &
+                                    Analytics</a>
+                                <a href="circulareconomy.html" style="color: black;">Circular Economy Marketplace</a>
+                                <a href="faq.html" style="color: black;">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-dropdown">
+                            <a href="complete_products_section.html" class="nav-link" style="color: white;">Products</a>
+
+                        </div> <a href="industries.html" class="nav-link" style="color: white;">Industries</a>
+                        <div class="nav-dropdown">
+                            <a href="technology.html" class="nav-link" style="color: white;">Technology ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="software.html" style="color: black;">Software</a>
+                                <a href="smartsensors.html" style="color: black;">Smart Sensors</a>
+                                <a href="smartphoneapp.html" style="color: black;">Smartphone App</a>
+                            </div>
+                        </div> <a href="SustainabilityRecycling.html" class="nav-link"
+                            style="color: white;">Sustainability & Recycling</a>
+                        <a href="contact.html" class="nav-link" style="color: white;">Contact</a>
+                        <a href="carrers.html" class="nav-link" style="color: white;">Careers</a>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="navbar-buttons">
+                        <!-- <a href="quote.html" class="nav-button light" style="border: none;">Request a Quote</a>
+                        <a href="https://infinicrm.com/admin/authentication" class="nav-button"
+                            style="border: none;">Login</a>
+                        <a href="signup.html" class="nav-button">Sign Up</a> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- this is where the navbar is ending -->
+        </header>
+        <!-- header end -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+
+            <div id="top"></div>
+
+            <section class="bg-color section-dark text-light no-top no-bottom overflow-hidden">
+                <div class="container-fluid position-relative half-fluid">
+                  <div class="container">
+                    <div class="row">
+                      <!-- Image -->
+                      <div class="col-lg-6 position-lg-absolute right-half h-100">
+                        <div class="de-gradient-edge-top dark"></div>
+                        <div class="image jarallax">
+                            <img src="images/background/10.webp" class="jarallax-img" alt="">
+                        </div>
+                      </div>
+                      <!-- Text -->
+                      <div class="col-lg-6 relative">
+                            <div class="me-lg-4">
+                                <div class="spacer-double"></div>
+                                <div class="spacer-double sm-hide"></div>
+                                <div class="spacer-single sm-hide"></div>
+                                <div class="spacer-single sm-hide"></div>
+                                <div class="spacer-single sm-hide"></div>
+                                <ul class="crumb">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="active">About Us</li>
+                                </ul>                                
+                                <h1 class="mb-2 wow fadeInUp" data-wow-delay=".2s">About Us</h1>
+                                <p class="col-lg-10 lead mb-0 wow fadeInUp" data-wow-delay=".3s">Smart Waste Disposal for a Cleaner Future</p>
+                                <div class="spacer-double"></div>
+                                <div class="spacer-single sm-hide"></div>
+
+                                <img src="images/misc/recycle-crop-2.webp" class="w-30 abs end-0 bottom-0 z-3" alt="">
+                            </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="container">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="relative">
+                                <div class="bg-body w-90 overflow-hidden wow zoomIn">
+                                    <img src="images/misc/3.webp" class="w-100 wow scaleIn" alt="">
+                                </div>
+                                <div class="bg-body w-50 abs mb-min-50 end-0 bottom-0 z-2 overflow-hidden wow zoomIn" data-wow-delay=".2s">
+                                    <img src="images/misc/2.webp" class="w-100 wow scaleIn" data-wow-delay=".2s" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="subtitle wow fadeInUp mb-3">About Company</div>
+                            <h2 class="wow fadeInUp">Waste Solutions For Brighter Tomorrow</h2>
+                            <p class="wow fadeInUp"  style="color: black;">We specialize in innovative waste management solutions for residential, commercial, and industrial clients. From collection to recycling, we ensure responsible disposal that protects the environment while keeping communities clean and sustainable.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-dark text-light">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <h2>Our Vision</h2>
+                        </div>
+                        <div class="col-lg-8">
+                            <h3>To be a leading waste management service provider committed to protecting the environment and enhancing the quality of life for future generations. We strive to create a cleaner, healthier, and more sustainable world by implementing innovative waste management solutions that minimize environmental impact.</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>            
+
+            <section class="relative overflow-hidden">
+                <img src="images/misc/recycle-crop.webp" class="w-20 abs end-0 bottom-0 z-3" alt="">
+                <div class="container relative z-2">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2>Our Mission</h2>
+                        </div>
+                        <div class="col-lg-8">
+                            <ul class="ul-check fw-600"  style="color: black;">
+                                <li>Deliver efficient, eco-friendly waste collection, recycling, and disposal services.</li>
+                                <li>Promote sustainability through waste reduction, reuse, and recycling initiatives.</li>
+                                <li>Ensure compliance with environmental regulations and best industry practices.</li>
+                                <li>Educate communities on responsible waste management and environmental stewardship.</li>
+                                <li>Utilize advanced technology to enhance waste management efficiency and sustainability.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- i am gona write our team code here-->
+    <!-- Team Section -->
+        <section class="team-section">
+            <div class="team-wave-bg"></div>
+            <div class="container team-container">
+                <div class="team-title">
+                    <h2>Meet Our Team</h2>
+                    <p>Our dedicated team of waste management professionals is committed to creating sustainable
+                        solutions for a cleaner future.</p>
+                </div>
+ <!-- Card 1 (Up) -->
+                <div class="team-row">
+                   
+                    <!-- <div class="team-card up wow fadeIn" data-wow-delay="0.1s">
+                        <div class="team-card-inner">
+                            <div class="team-img">
+                                <img src="images/team/1.webp" alt="Michael Reynolds">
+                                <div class="team-overlay">
+                                    <p>Leads the company with a vision for a cleaner, greener future.</p>
+                                </div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Michael Reynolds</h3>
+                                <p class="position">Chief Executive Officer</p>
+                                <div class="team-social">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- Card 2 (Down) -->
+                    <!-- <div class="team-card down wow fadeIn" data-wow-delay="0.2s">
+                        <div class="team-card-inner">
+                            <div class="team-img">
+                                <img src="images/team/2.webp" alt="Sarah Mitchell">
+                                <div class="team-overlay">
+                                    <p>Oversees daily operations, ensuring efficiency in waste collection and disposal.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Sarah Mitchell</h3>
+                                <p class="position">Operations Manager</p>
+                                <div class="team-social">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- Card 3 (Up) -->
+             
+                        <div class="team-card up wow fadeIn" data-wow-delay="0.3s">
+  <div class="team-card-inner">
+    <div class="team-img">
+      <img src="asseststeam/abdulkhan.webp" alt="Abdul Rehman">
+      <div class="team-overlay"></div>
+    </div>
+    <div class="team-info">
+      <h3>Abdul Rehman</h3>
+      <p class="position">CEO</p>
+      <p style="color: black; margin-bottom: 10px; line-height: 1.4; font-size: 14px;">
+        Abdul Rehman Khan is passionate about waste management, sustainability, and environmental innovation. With expertise in programming, robotics, and automation, he builds smart solutions for a cleaner, greener future.
+      </p>
+      <div class="team-social d-flex gap-2">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-card up wow fadeIn" data-wow-delay="0.3s">
+  <div class="team-card-inner">
+    <div class="team-img">
+      <img src="asseststeam/talhakhan.webp" alt="Abdul Rehman">
+      <div class="team-overlay"></div>
+    </div>
+    <div class="team-info">
+      <h3>Talha Khan</h3>
+      <p class="position">CTO </p>
+      <p style="color: black; margin-bottom: 10px; line-height: 1.4; font-size: 14px;">
+Talha Khan is passionate about law, governance, and civic engagement. With a background in political science and leadership experience in student government and elections, he strives to build informed, fair, and inclusive systems.     </p>
+      <div class="team-social d-flex gap-2">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+                    <!-- Card 4 (Down) -->
+                    <!-- <div class="team-card down wow fadeIn" data-wow-delay="0.4s">
+                        <div class="team-card-inner">
+                            <div class="team-img">
+                                <img src="images/team/4.webp" alt="Linda Parker">
+                                <div class="team-overlay">
+                                    <p>Focuses on customer satisfaction and service excellence.</p>
+                                </div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Linda Parker</h3>
+                                <p class="position">Customer Service Manager</p>
+                                <div class="team-social">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- Card 5 (Up) -->
+                    <!-- <div class="team-card up wow fadeIn" data-wow-delay="0.5s">
+                        <div class="team-card-inner">
+                            <div class="team-img">
+                                <img src="data:image/jpeg;base64,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"
+                                    alt="James Wilson">
+                                <div class="team-overlay">
+                                    <p>Develops innovative recycling programs and sustainability initiatives.</p>
+                                </div>
+                            </div>
+                            <div class="team-info">
+                                <h3>James Wilson</h3>
+                                <p class="position">Sustainability Director</p>
+                                <div class="team-social">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Your existing footer and other content -->
+    </div>
+  
+
+            <!--  i am gona write our team code here but the code ends from herer -->
+            <section class="bg-color-op-1">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <h2 class="mb-4">Why Choose Us?</h2>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".0s">
+                            <div class="p-40 overlay-white-5">
+                                <i class="bg-color text-light fs-48 p-2 absolute id-color icon_check"></i>
+                                <div class="ps-80">
+                                    <h4>Eco-Friendly Focus</h4>
+    <p class="mb-0" style="color: black;">We prioritize sustainability in every solution we deliver — reducing waste, cutting emissions, and promoting green practices that protect our planet for future generations.</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                            <div class="p-40 overlay-white-5">
+                                <i class="bg-color text-light fs-48 p-2 absolute id-color icon_check"></i>
+                                <div class="ps-80">
+                                    <h4>Flexible Scheduling</h4>
+    <p class="mb-0" style="color: black;">Our adaptive service plans are built around your convenience — whether you're a household, business, or industrial facility, we operate on your timeline.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                            <div class="p-40 overlay-white-5">
+                                <i class="bg-color text-light fs-48 p-2 absolute id-color icon_check"></i>
+                                <div class="ps-80">
+                                    <h4>Transparent Pricing</h4>
+     <p class="mb-0" style="color: black;">No hidden fees, no surprises. We believe in honest, upfront pricing that ensures you get maximum value without the guesswork.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                            <div class="p-40 overlay-white-5">
+                                <i class="bg-color text-light fs-48 p-2 absolute id-color icon_check"></i>
+                                <div class="ps-80">
+                                    <h4>Innovative Technology</h4>
+ <p  style="color: black;">At Autonic, we harness the power of automation, smart sensors, and real-time data to bring efficiency and intelligence to every step of waste management.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
+                            <div class="p-40 overlay-white-5">
+                                <i class="bg-color text-light fs-48 p-2 absolute id-color icon_check"></i>
+                                <div class="ps-80">
+                                    <h4>One Stop Solution</h4>
+<p class="mb-0" style="color: black;">
+From collection and sorting to recycling and reporting — we offer a complete, integrated solution tailored to your unique needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1s">
+                            <div class="p-40 overlay-white-5">
+                                <i class="bg-color text-light fs-48 p-2 absolute id-color icon_check"></i>
+                                <div class="ps-80">
+                                    <h4>Satisfaction Guarantee</h4>
+<p class="mb-0" style="color: black;">
+Your satisfaction is our top priority. We back our services with a reliability guarantee, ensuring performance, accountability, and peace of mind.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        <!-- content end -->
+        
+       
+        <!-- footer begin -->
+        <footer class="section-dark">
+            <div class="container relative z-2">
+                <div class="row gx-5 relative z-2">
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="images/Autonic-white.png" class="w-200px" alt="">
+                        <div class="spacer-20"></div>
+                        <p>
+     At Autonic, we are dedicated to delivering reliable, intelligent, and eco-conscious waste management solutions designed to meet the specific needs of residential, commercial, and industrial sectors. By integrating cutting-edge automation with sustainable practices, we aim to minimize environmental impact, enhance operational efficiency, and drive a cleaner, smarter future for communities and the planet.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Company</h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="widget">
+                                    <h5>Our Services</h5>
+                                    <ul>
+                              <li>
+                    <a href="smartwastesorting.html" >Smart Sorting</a>
+                </li>
+                <li>
+                    <a href="routeoptimization.html" >Route Optimization for- Waste
+                        Collection</a>
+                </li>
+                <li>
+                    <a href="contaminationdetection.html" >Contamination Detection in-
+                        Recycling</a>
+                </li>
+                <li>
+                    <a href="wastetrackinganalytics.html" >Waste Tracking &
+                        Analytics</a>
+                </li>
+                <li>
+                    <a href="circulareconomy.html" >Circular Economy Marketplace</a>
+                </li>
+                <li>
+                    <a href="faq.html" >FAQ</a>
+                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                        <div class="widget">
+                            <h5>Subscribe to Newsletter</h5>
+                            <form action="#" class="row form-dark" id="form_subscribe" method="post"
+                                name="form_subscribe">
+                                <div class="col text-center">
+                                    <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                        placeholder="enter your email" type="text"> <a href="#" id="btn-subscribe"><i
+                                            class="arrow_right bg-color-secondary"></i></a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="spacer-10"></div>
+                            <small>Your email is safe with us. We don't spam.</small>
+                            <div class="spacer-30"></div>
+
+                            <div class="widget">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons mb-sm-30">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 order-3">
+                        <div class="spacer-single"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="spacer-double"></div>
+                        <div class="abs bottom-0">
+                            <h2 class="text-fit p-0 lh-1 op-2">Autonic </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- footer end -->
+        <!-- footer end -->
+    </div>
+
+
+    <div id="extra-wrap" class="text-light">
+        <div id="btn-close">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="extra-content">
+            <img src="images/logo-white.webp" class="w-150px" alt="">
+
+            <div class="spacer-30-line"></div>
+
+            <h5>Our Services</h5>
+            <ul class="no-style">
+                <li><a href="service-single.html">Waste Collection</a></li>
+                <li><a href="service-single.html">Commercial Recycling</a></li>
+                <li><a href="service-single.html">Dumpster Rental</a></li>
+                <li><a href="service-single.html">Organic Waste</a></li>
+                <li><a href="service-single.html">E-waste Disposal</a></li>
+                <li><a href="service-single.html">Medical Waste</a></li>
+            </ul>
+
+            <div class="spacer-30-line"></div>
+
+            <h5>Contact Us</h5>
+            <div><i class="icofont-clock-time me-2 op-5"></i>Monday - Friday 08.00 - 18.00</div>
+            <div><i class="icofont-location-pin me-2 op-5"></i>100 S Main St, New York, </div>
+            <div><i class="icofont-envelope me-2 op-5"></i>contact@Autonic .com</div>    
+
+            <div class="spacer-30-line"></div>
+
+            <h5>About Us</h5>
+            <p>We provide reliable, eco-conscious waste management solutions for homes, businesses, and industries. With a focus on sustainability and innovation, we help communities reduce waste, recycle more, and create a cleaner, greener future.</p>
+
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-discord"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="buy-now" class="show-on-scroll">
+        <a class="btn-buy" href="https://themeforest.net/item/Autonic -waste-management-disposal-and-recycling-website-template/57643554" target="_blank">Buy on <img src="demo/envato.png" class="" alt=""></a>
+    </div> -->
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/custom-marquee.js"></script>
+     <script>
+    const hamburger = document.getElementById('hamburger');
+    const sideNav = document.getElementById('sideNav');
+
+    hamburger.addEventListener('click', () => {
+      sideNav.classList.toggle('open');
+    });
+
+    // Optional: Click outside to close
+    window.addEventListener('click', (e) => {
+      if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+        sideNav.classList.remove('open');
+      }
+    });
+    const carets = document.querySelectorAll('.dropdown-toggle');
+
+carets.forEach(caret => {
+  caret.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click bubbling
+    const sideDropdown = caret.closest('.side-dropdown');
+    sideDropdown.classList.toggle('open');
+  });
+});
+  </script>
+
+</body>
+
+</html>

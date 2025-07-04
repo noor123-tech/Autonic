@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply | Waste Wise</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #eaf4ec, #f6fdf4);
+      color: #123524;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(25, 92, 39, 0.2);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    h2 {
+      color: #195c27;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #2b4e36;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      border: 1px solid #cfd8dc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #195c27;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(25, 92, 39, 0.2);
+    }
+
+    button {
+      background-color: #195c27;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    button:hover {
+      background-color: #167a35;
+    }
+
+    /* Popup Styling */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 1000;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .popup-content {
+      background-color: #ffffff;
+      max-width: 480px;
+      margin: 120px auto;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      animation: slideUp 0.4s ease;
+    }
+
+    .popup-content h3 {
+      color: #195c27;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .popup-content p {
+      font-size: 16px;
+      color: #444;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+      <div style="
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: url('bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.6);
+  "></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply | Waste Wise</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #eaf4ec;
+      overflow-x: hidden;
+    }
+
+    /* Background image layer */
+    .background {
+      position: fixed;
+      inset: 0;
+      background-image: url('bg.jpeg'); /* or 'assets/bg.jpeg' */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      filter: brightness(0.5);
+    }
+
+    /* Glassy form container */
+    .container {
+      max-width: 700px;
+      margin: 5vh auto;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      color: #103920;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+      color: #ffffff;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-top: 8px;
+      margin-bottom: 6px;
+      border: 1px solid #bcd7c7;
+      border-radius: 10px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    small {
+      display: block;
+      margin-bottom: 14px;
+      color: #e3f3e7;
+      font-size: 13px;
+    }
+
+    button {
+      background-color: #195c27;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #157a38;
+    }
+
+    /* Confirmation popup */
+    #popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+    }
+
+    .popup-content {
+      max-width: 480px;
+      margin: 15% auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .popup-content h3 {
+      color: #195c27;
+    }
+
+    .popup-content p {
+      color: #444;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🔳 Background Image -->
+  <div class="background"></div>
+
+  <!-- 📝 Form -->
+  <div class="container">
+    <h2>Apply to Join Waste Wise</h2>
+    <form id="applicationForm" style="margin-right: 20px;">
+      
+      <label>Full Name</label>
+      <input type="text" required placeholder="Your full name" />
+      <small>Enter your legal full name as on your CNIC or passport.</small>
+
+      <label>Email</label>
+      <input type="email" required placeholder="you@example.com" />
+      <small>We'll contact you at this email.</small>
+
+      <label>Phone Number</label>
+      <input type="tel" required placeholder="+92-XXX-XXXXXXX" />
+      <small>Enter a valid mobile number with country code.</small>
+
+      <label>LinkedIn Profile</label>
+      <input type="url" placeholder="https://linkedin.com/in/yourname" />
+      <small>Optional but preferred if available.</small>
+
+      <label>Resume / Portfolio Link</label>
+      <input type="url" placeholder="https://yourwebsite.com/resume.pdf" />
+      <small>Google Drive / Dropbox / Website links are accepted.</small>
+
+      <label>Which Role Are You Applying For?</label>
+      <select required>
+        <option disabled selected>Select a role</option>
+        <option>Environmental Technician</option>
+        <option>Sustainability Analyst</option>
+        <option>Operations Manager</option>
+        <option>Other</option>
+      </select>
+      <small>Pick the closest match if you're unsure.</small>
+
+      <label>Why should we consider you?</label>
+      <textarea required placeholder="Tell us what makes you a great fit" rows="4"></textarea>
+      <small>A few strong lines about your experience or motivation.</small>
+
+      <label>Expected Monthly Salary (PKR)</label>
+      <input type="number" placeholder="50000" />
+      <small>This helps us align expectations from the start.</small>
+
+      <label>Available From</label>
+      <input type="date" />
+      <small>When can you start working with us?</small>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+  <!-- ✅ Confirmation Popup -->
+  <div id="popup">
+    <div class="popup-content">
+      <h3>Thank You for Applying!</h3>
+      <p>We've received your application for <strong>Waste Wise</strong>. Our team will reach out if your profile matches the position.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("applicationForm");
+    const popup = document.getElementById("popup");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      popup.style.display = "block";
+      form.reset();
+    });
+
+    function closePopup() {
+      popup.style.display = "none";
+    }
+  </script>
+</body>
+</html>
+
