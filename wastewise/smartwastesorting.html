@@ -773,6 +773,30 @@
     <!-- Javascript Files -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const sideNav = document.getElementById('sideNav');
+
+    hamburger.addEventListener('click', () => {
+      sideNav.classList.toggle('open');
+    });
+
+    // Optional: Click outside to close
+    window.addEventListener('click', (e) => {
+      if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+        sideNav.classList.remove('open');
+      }
+    });
+    const carets = document.querySelectorAll('.dropdown-toggle');
+
+carets.forEach(caret => {
+  caret.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click bubbling
+    const sideDropdown = caret.closest('.side-dropdown');
+    sideDropdown.classList.toggle('open');
+  });
+});
+  </script>
 </body>
 
 </html>
